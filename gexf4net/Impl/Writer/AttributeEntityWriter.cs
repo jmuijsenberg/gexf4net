@@ -12,35 +12,34 @@ namespace gexf4net.Impl.Writer
         private const string ENTITY_DEFAULT = "default";
         private const string ENTITY_OPTIONS = "options";
 
-        public AttributeEntityWriter(XmlWriter writer, Attribute entity)
+        public AttributeEntityWriter(XmlWriter writer, Attribute entity) : base(writer, entity)
         {
-            base(writer, entity);
             write();
         }
 
-        protected string getElementName()
+        protected override string getElementName()
         {
             return ENTITY;
         }
 
 
-        protected void writeAttributes()
+        protected override void writeAttributes()
         {
-            writer.writeAttribute(
-                ATTRIB_ID,
-                entity.getId());
+            //writer.writeAttribute(
+            //    ATTRIB_ID,
+            //    entity.getId());
 
-            writer.writeAttribute(
-                ATTRIB_TITLE,
-                entity.getTitle());
+            //writer.writeAttribute(
+            //    ATTRIB_TITLE,
+            //    entity.getTitle());
 
-            writer.writeAttribute(
-                ATTRIB_TYPE,
-                entity.getAttributeType().toString().toLowerCase());
+            //writer.writeAttribute(
+            //    ATTRIB_TYPE,
+            //    entity.getAttributeType().toString().toLowerCase());
         }
 
 
-        protected void writeElements()
+        protected override void writeElements()
         {
             if (entity.hasDefaultValue())
             {
@@ -49,8 +48,8 @@ namespace gexf4net.Impl.Writer
 
             if (entity.getOptions().Count > 0)
             {
-                String options = Joiner.on(',').skipNulls().join(entity.getOptions());
-                new StringEntityWriter(writer, ENTITY_OPTIONS, options);
+                //string options = Joiner.on(',').skipNulls().join(entity.getOptions());
+                //new StringEntityWriter(writer, ENTITY_OPTIONS, options);
             }
         }
     }

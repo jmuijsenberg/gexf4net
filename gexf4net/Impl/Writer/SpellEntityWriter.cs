@@ -1,15 +1,20 @@
+using gexf4net.dynamic;
+using System.Xml;
+
 namespace gexf4net.Impl.Writer
 {
-    public class SpellEntityWriter extends DynamicEntityWriter<Spell> {
-	private static final String ENTITY = "spell";
-	
-	public SpellEntityWriter(XMLStreamWriter writer, Spell entity) {
-		super(writer, entity);
-		write();
-	}
+    public class SpellEntityWriter : DynamicEntityWriter<Spell>
+    {
+        private const string ENTITY = "spell";
 
-	
-	protected String getElementName() {
-		return ENTITY;
-	}
+        public SpellEntityWriter(XmlWriter writer, Spell entity) : base(writer, entity)
+        {
+            write();
+        }
+        
+        protected override string getElementName()
+        {
+            return ENTITY;
+        }
+    }
 }

@@ -13,12 +13,12 @@ namespace gexf4net.Impl
             // TODO: Uncomment
             //try {
             //    XMLOutputFactory xmlOutputFactory = WstxOutputFactory.newInstance();
-            //    XMLStreamWriter streamWriter = xmlOutputFactory.createXMLStreamWriter(out);
+            //    XmlWriter streamWriter = xmlOutputFactory.createXmlWriter(out);
 
             //    PrettyPrintHandler handler = new PrettyPrintHandler(streamWriter);
-            //    streamWriter = (XMLStreamWriter) Proxy.newProxyInstance(
-            //    		XMLStreamWriter.class.getClassLoader(),
-            //    		new Class[]{XMLStreamWriter.class},
+            //    streamWriter = (XmlWriter) Proxy.newProxyInstance(
+            //    		XmlWriter.class.getClassLoader(),
+            //    		new Class[]{XmlWriter.class},
             //    		handler );
 
             //    streamWriter.writeStartDocument(encoding, "1.0");

@@ -1,33 +1,42 @@
+using System.Collections.Generic;
+using System.Xml;
+
 namespace gexf4net.Impl.Writer
 {
-    public class EdgesEntityWriter extends AbstractEntityWriter<List<Edge>> {
-	private static final String ENTITY = "edges";
-	private static final String ATTRIB_COUNT = "count";
-	
-	public EdgesEntityWriter(XMLStreamWriter writer, List<Edge> entity) {
-		super(writer, entity);
-		
-		if (!entity.isEmpty()) {
-			write();
-		}
-	}
+    public class EdgesEntityWriter : AbstractEntityWriter<List<Edge>>
+    {
+        private const string ENTITY = "edges";
+        private const string ATTRIB_COUNT = "count";
 
-	
-	protected String getElementName() {
-		return ENTITY;
-	}
+        public EdgesEntityWriter(XmlWriter writer, List<Edge> entity) : base(writer, entity)
+        {
+            if (entity.Count > 0)
+            {
+                write();
+            }
+        }
 
-	
-	protected void writeElements() throws XMLStreamException {
-		for (Edge e : entity) {
-			new EdgeEntityWriter(writer, e);
-		}
-	}
 
-	
-	protected void writeAttributes() throws XMLStreamException {
-		writer.writeAttribute(
-				ATTRIB_COUNT,
-				Integer.toString(entity.size()));
-	}
+        protected override string getElementName()
+        {
+            return ENTITY;
+        }
+
+
+        protected override void writeElements()
+        {
+            foreach (Edge e in entity)
+            {
+                new EdgeEntityWriter(writer, e);
+            }
+        }
+
+
+        protected override void writeAttributes()
+        {
+            //writer.writeAttribute(
+            //        ATTRIB_COUNT,
+            //        Integer.toString(entity.size()));
+        }
+    }
 }

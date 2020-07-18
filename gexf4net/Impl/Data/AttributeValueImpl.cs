@@ -23,7 +23,7 @@ namespace gexf4net.Impl.Data
             this.attribute = attribute;
         }
         
-        protected AttributeValue getSelf()
+        protected override AttributeValue getSelf()
         {
             return this;
         }

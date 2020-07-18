@@ -1,3 +1,4 @@
+using gexf4net.Impl.Viz;
 using gexf4net.viz;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
@@ -24,9 +25,8 @@ namespace gexf4net.Impl
         /**
          * Constructs a Node
          */
-        public NodeImpl()
+        public NodeImpl() : this(System.Guid.NewGuid().ToString())
         {
-            this(System.Guid.NewGuid().ToString());
         }
 
         /**
@@ -45,7 +45,7 @@ namespace gexf4net.Impl
             this.shape = new NodeShapeImpl();
         }
 
-        protected Node getSelf()
+        protected override Node getSelf()
         {
             return this;
         }

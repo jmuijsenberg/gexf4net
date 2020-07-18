@@ -28,8 +28,8 @@ namespace gexf4net.Impl
             attributeLists = new List<AttributeList>();
             nodes = new List<Node>();
         }
-        
-        protected Graph getSelf()
+
+        protected override Graph getSelf()
         {
             return this;
         }
@@ -38,7 +38,7 @@ namespace gexf4net.Impl
         {
             return edgeType;
         }
-        
+
         public IDType getIDType()
         {
             return idType;
@@ -94,7 +94,7 @@ namespace gexf4net.Impl
         public Node createNode(string id)
         {
             Contract.Requires(id != null, "ID cannot be null.");
-            Contract.Requires(!id.trim().isEmpty(), "ID cannot be empty or blank.");
+            Contract.Requires(id.Trim().Length > 0, "ID cannot be blank.");
 
             Node rv = new NodeImpl(id);
             nodes.Add(rv);
@@ -142,3 +142,4 @@ namespace gexf4net.Impl
             return attributeLists;
         }
     }
+}

@@ -1,30 +1,40 @@
+using gexf4net.dynamic;
+using System.Collections.Generic;
+using System.Xml;
+
 namespace gexf4net.Impl.Writer
 {
-    public class SpellsEntityWriter extends AbstractEntityWriter<List<Spell>> {
-	private static final String ENTITY = "spells";
-	
-	public SpellsEntityWriter(XMLStreamWriter writer, List<Spell> entity) {
-		super(writer, entity);
-		
-		if (!entity.isEmpty()) {
-			write();
-		}
-	}
+    public class SpellsEntityWriter : AbstractEntityWriter<List<Spell>>
+    {
+        private const string ENTITY = "spells";
 
-	
-	protected String getElementName() {
-		return ENTITY;
-	}
+        public SpellsEntityWriter(XmlWriter writer, List<Spell> entity) : base(writer, entity)
+        {
+            if (entity.Count > 0)
+            {
+                write();
+            }
+        }
 
-	
-	protected void writeElements() throws XMLStreamException {
-		for (Spell s : entity) {
-			new SpellEntityWriter(writer, s);
-		}
-	}
 
-	
-	protected void writeAttributes() throws XMLStreamException {
-		// do nothing
-	}
+        protected override string getElementName()
+        {
+            return ENTITY;
+        }
+
+
+        protected override void writeElements()
+        {
+            foreach (Spell s in entity)
+            {
+                new SpellEntityWriter(writer, s);
+            }
+        }
+
+
+        protected override void writeAttributes()
+        {
+            // do nothing
+        }
+    }
 }

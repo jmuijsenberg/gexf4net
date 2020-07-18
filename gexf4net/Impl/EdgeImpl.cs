@@ -38,7 +38,7 @@ namespace gexf4net.Impl
             this.target = target;
         }
 
-        protected Edge getSelf()
+        protected override Edge getSelf()
         {
             return this;
         }

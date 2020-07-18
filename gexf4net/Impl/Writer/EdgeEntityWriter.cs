@@ -1,75 +1,87 @@
+using System.Xml;
+
 namespace gexf4net.Impl.Writer
 {
-    public class EdgeEntityWriter extends SpellableDatumEntityWriter<Edge> {
-	private static final String ENTITY = "edge";
-	private static final String ATTRIB_ID = "id";
-	private static final String ATTRIB_LABEL = "label";
-	private static final String ATTRIB_SOURCE = "source";
-	private static final String ATTRIB_TARGET = "target";
-	private static final String ATTRIB_WEIGHT = "weight";
-	private static final String ATTRIB_TYPE = "type";
-	
-	public EdgeEntityWriter(XMLStreamWriter writer, Edge entity) {
-		super(writer, entity);
-		write();
-	}
-	
-	
-	protected String getElementName() {
-		return ENTITY;
-	}
+    public class EdgeEntityWriter : SpellableDatumEntityWriter<Edge>
+    {
+        private const string ENTITY = "edge";
+        private const string ATTRIB_ID = "id";
+        private const string ATTRIB_LABEL = "label";
+        private const string ATTRIB_SOURCE = "source";
+        private const string ATTRIB_TARGET = "target";
+        private const string ATTRIB_WEIGHT = "weight";
+        private const string ATTRIB_TYPE = "type";
 
-	
-	protected void writeElements() throws XMLStreamException {
-		super.writeElements();
-		
-		if (entity.hasColor()) {
-			new ColorEntityWriter(writer, entity.getColor());
-		}
-		
-		if (entity.hasThickness()) {
-			new ValueEntityWriter<Float>(writer,
-					"viz:thickness",
-					entity.getThickness());
-		}
-		
-		if (entity.getShape() != EdgeShape.NOTSET) {
-			new ValueEntityWriter<String>(writer,
-					"viz:shape",
-					entity.getShape().toString().toLowerCase());
-		}
-	}
+        public EdgeEntityWriter(XmlWriter writer, Edge entity) : base(writer, entity)
+        {
+            write();
+        }
 
-	
-	protected void writeAttributes() throws XMLStreamException {
-		super.writeAttributes();
-		
-		writer.writeAttribute(
-				ATTRIB_ID,
-				entity.getId());
-		
-		writer.writeAttribute(
-				ATTRIB_SOURCE,
-				entity.getSource().getId());
-		
-		writer.writeAttribute(
-				ATTRIB_TARGET,
-				entity.getTarget().getId());
-		
-		writer.writeAttribute(
-				ATTRIB_TYPE,
-				entity.getEdgeType().toString().toLowerCase());
-		
-		if (entity.hasLabel()) {
-			writer.writeAttribute(
-					ATTRIB_LABEL,
-					entity.getLabel());
-		}
-		
-		if (entity.hasWeight()) {
-			writer.writeAttribute(
-					ATTRIB_WEIGHT,
-					Float.toString(entity.getWeight()));
-		}
-	}
+
+        protected override string getElementName()
+        {
+            return ENTITY;
+        }
+
+
+        protected virtual void writeElements()
+        {
+            base.writeElements();
+
+            //if (entity.hasColor())
+            //{
+            //    new ColorEntityWriter(writer, entity.getColor());
+            //}
+
+            //if (entity.hasThickness())
+            //{
+            //    new ValueEntityWriter<Float>(writer,
+            //            "viz:thickness",
+            //            entity.getThickness());
+            //}
+
+            //if (entity.getShape() != EdgeShape.NOTSET)
+            //{
+            //    new ValueEntityWriter<String>(writer,
+            //            "viz:shape",
+            //            entity.getShape().toString().toLowerCase());
+            //}
+        }
+
+
+        protected void writeAttributes()
+        {
+            base.writeAttributes();
+
+            //writer.writeAttribute(
+            //        ATTRIB_ID,
+            //        entity.getId());
+
+            //writer.writeAttribute(
+            //        ATTRIB_SOURCE,
+            //        entity.getSource().getId());
+
+            //writer.writeAttribute(
+            //        ATTRIB_TARGET,
+            //        entity.getTarget().getId());
+
+            //writer.writeAttribute(
+            //        ATTRIB_TYPE,
+            //        entity.getEdgeType().toString().toLowerCase());
+
+            //if (entity.hasLabel())
+            //{
+            //    writer.writeAttribute(
+            //            ATTRIB_LABEL,
+            //            entity.getLabel());
+            //}
+
+            //if (entity.hasWeight())
+            //{
+            //    writer.writeAttribute(
+            //            ATTRIB_WEIGHT,
+            //            Float.toString(entity.getWeight()));
+            //}
+        }
+    }
 }

@@ -1,22 +1,29 @@
+using gexf4net.dynamic;
+using System.Xml;
+
 namespace gexf4net.Impl.Writer
 {
-    public abstract class SpellableEntityWriter<T extends Spellable<?>> extends DynamicEntityWriter<T> {
+    // TODO: Purpose Spellable<?>>
+    public abstract class SpellableEntityWriter<T> : DynamicEntityWriter<T>, Spellable<T>
+    {
+        public SpellableEntityWriter(XmlWriter writer, T entity) : base(writer, entity)
+        {
+        }
 
-	public SpellableEntityWriter(XMLStreamWriter writer, T entity) {
-		super(writer, entity);
-	}
+        protected override void writeAttributes()
+        {
+            // do nothing
+            base.writeAttributes();
+        }
 
-	
-	protected void writeAttributes() throws XMLStreamException {
-		// do nothing
-		super.writeAttributes();
-	}
 
-	
-	protected void writeElements() throws XMLStreamException {
-		if (!entity.getSpells().isEmpty()) {
-			new SpellsEntityWriter(writer, entity.getSpells());
-		}
-		super.writeElements();
-	}	
+        protected override void writeElements()
+        {
+            //if (!entity.getSpells().isEmpty())
+            //{
+            //    new SpellsEntityWriter(writer, entity.getSpells());
+            //}
+            base.writeElements();
+        }
+    }
 }

@@ -1,28 +1,33 @@
+using System.Diagnostics.Contracts;
+using System.Xml;
+
 namespace gexf4net.Impl.Writer
 {
-    public class StringEntityWriter extends AbstractEntityWriter<String> {
+    public class StringEntityWriter : AbstractEntityWriter<string>
+    {
+        private string characters = null;
 
-	private String characters = null;
-	public StringEntityWriter(XMLStreamWriter writer, String entity, String characters) {
-		super(writer, entity);
-		Contract.Requires(characters != null, "Characters cannot be null.");
-		
-		this.characters = characters;
-		write();
-	}
+        public StringEntityWriter(XmlWriter writer, string entity, string characters) : base(writer, entity)
+        {
+            Contract.Requires(characters != null, "Characters cannot be null.");
 
-	
-	protected String getElementName() {
-		return entity;
-	}
-
-	
-	protected void writeElements() throws XMLStreamException {
-		writer.writeCharacters(characters);
-	}
-	
-	
-	protected void writeAttributes() throws XMLStreamException {
-		// do nothing
-	}
+            this.characters = characters;
+            write();
+        }
+        
+        protected override string getElementName()
+        {
+            return entity;
+        }
+        
+        protected override void writeElements()
+        {
+            //writer.writeCharacters(characters);
+        }
+        
+        protected override void writeAttributes()
+        {
+            // do nothing
+        }
+    }
 }

@@ -35,7 +35,7 @@ namespace gexf4net.Impl.Writer
         }
 
 
-        protected void writeElements()
+        protected override void writeElements()
         {
             foreach (Attribute attrib in entity)
             {

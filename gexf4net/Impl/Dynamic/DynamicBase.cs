@@ -85,7 +85,6 @@ namespace gexf4net.Impl.Dynamic
 
         public T setStartIntervalType(IntervalType startIntervalType)
         {
-            Contract.Requires(startIntervalType != null, "Start Interval Type cannot be null.");
             this.startIntervalType = startIntervalType;
             return getSelf();
         }
@@ -93,7 +92,6 @@ namespace gexf4net.Impl.Dynamic
 
         public T setEndIntervalType(IntervalType endIntervalType)
         {
-            Contract.Requires(endIntervalType != null, "End Interval Type cannot be null.");
             this.endIntervalType = endIntervalType;
             return getSelf();
         }

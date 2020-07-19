@@ -4,8 +4,7 @@ using System.Xml;
 
 namespace gexf4net.Impl.Writer
 {
-    // TODO: Purpose of Dynamic<?>>
-    public abstract class DynamicEntityWriter<T> : AbstractEntityWriter<T>, Dynamic<T>
+    public abstract class DynamicEntityWriter<T> : AbstractEntityWriter<T> where T : Dynamic<T>
     {
         protected const string ATTRIB_START = "start";
         protected const string ATTRIB_START_OPEN = "startopen";

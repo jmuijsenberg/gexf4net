@@ -24,7 +24,7 @@ namespace gexf4net.Impl.Writer
         }
 
 
-        protected virtual void writeElements()
+        protected override void writeElements()
         {
             base.writeElements();
 
@@ -49,7 +49,7 @@ namespace gexf4net.Impl.Writer
         }
 
 
-        protected void writeAttributes()
+        protected override void writeAttributes()
         {
             base.writeAttributes();
 

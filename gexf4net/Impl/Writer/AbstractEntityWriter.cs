@@ -91,12 +91,12 @@ namespace gexf4net.Impl.Writer
             }
         }
 
-        protected void writeStartElement()
+        protected virtual void writeStartElement()
         {
             // TODO: writer.writeStartElement(getElementName());
         }
 
-        protected void writeEndElement()
+        protected virtual void writeEndElement()
         {
             // TODO: writer.writeStartElement(getElementName());
         }

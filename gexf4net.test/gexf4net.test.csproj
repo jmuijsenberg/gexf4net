@@ -64,6 +64,12 @@
     <None Include="Res\strings.properties" />
     <None Include="Res\testStaticUtf.gexf" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\gexf4net\gexf4net.csproj">
+      <Project>{27f62f2e-0975-4837-8fd4-3e8201b0118f}</Project>
+      <Name>gexf4net</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

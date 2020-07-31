@@ -23,7 +23,7 @@
     <Optimize>false</Optimize>
     <OutputPath>..\..\build\bin\</OutputPath>
     <BaseIntermediateOutputPath>..\..\build\obj\</BaseIntermediateOutputPath>
-    <IntermediateOutputPath>$(BaseIntermediateOutputPath)$(Configuration)\</IntermediateOutputPath>		
+    <IntermediateOutputPath>$(BaseIntermediateOutputPath)$(Configuration)\</IntermediateOutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -33,13 +33,14 @@
     <Optimize>true</Optimize>
     <OutputPath>..\..\build\bin\</OutputPath>
     <BaseIntermediateOutputPath>..\..\build\obj\</BaseIntermediateOutputPath>
-    <IntermediateOutputPath>$(BaseIntermediateOutputPath)$(Configuration)\</IntermediateOutputPath>		
+    <IntermediateOutputPath>$(BaseIntermediateOutputPath)$(Configuration)\</IntermediateOutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.XML" />
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -49,11 +50,17 @@
     </When>
     <Otherwise>
       <ItemGroup>
-        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework">
+          <Private>False</Private>
+        </Reference>
       </ItemGroup>
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Metadata\GexfCreatorMetadataTest.cs" />
+    <Compile Include="Metadata\GexfDescriptionMetadataTest.cs" />
+    <Compile Include="Metadata\GexfKeywordsMetadataTest.cs" />
+    <Compile Include="Metadata\GexfMetadataTest.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -62,6 +69,14 @@
       <Project>{8da00207-6f73-4bac-9b53-f4bdf73d9e01}</Project>
       <Name>gexf4net</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Attributes\" />
+    <Folder Include="Edges\" />
+    <Folder Include="Graph\" />
+    <Folder Include="Model\" />
+    <Folder Include="Nodes\" />
+    <Folder Include="Time\" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

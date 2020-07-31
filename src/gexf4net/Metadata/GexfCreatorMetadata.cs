@@ -12,7 +12,7 @@ namespace gexf4net
     //
     // <creator>Gephi.org</creator>
     //
-    class GexfCreatorMetadata
+    public class GexfCreatorMetadata
     {
         private const string XmlElementName = "creator";
 

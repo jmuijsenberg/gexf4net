@@ -1,0 +1,12 @@
+D:\GitAhead\gexf4net\src\gexf4net\gexf4net.examples\bin\Debug\gexf4net.examples.exe.config
+D:\GitAhead\gexf4net\src\gexf4net\gexf4net.examples\bin\Debug\gexf4net.examples.exe
+D:\GitAhead\gexf4net\src\gexf4net\gexf4net.examples\bin\Debug\gexf4net.examples.pdb
+D:\GitAhead\gexf4net\src\gexf4net\gexf4net.examples\obj\Debug\gexf4net.examples.csprojResolveAssemblyReference.cache
+D:\GitAhead\gexf4net\src\gexf4net\gexf4net.examples\obj\Debug\gexf4net.examples.exe
+D:\GitAhead\gexf4net\src\gexf4net\gexf4net.examples\obj\Debug\gexf4net.examples.pdb
+D:\GitAhead\gexf4net\src\gexf4net.examples\bin\Debug\gexf4net.examples.exe.config
+D:\GitAhead\gexf4net\src\gexf4net.examples\bin\Debug\gexf4net.examples.exe
+D:\GitAhead\gexf4net\src\gexf4net.examples\bin\Debug\gexf4net.examples.pdb
+D:\GitAhead\gexf4net\src\gexf4net.examples\obj\Debug\gexf4net.examples.csprojResolveAssemblyReference.cache
+D:\GitAhead\gexf4net\src\gexf4net.examples\obj\Debug\gexf4net.examples.exe
+D:\GitAhead\gexf4net\src\gexf4net.examples\obj\Debug\gexf4net.examples.pdb

@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gexf4net", "gexf4net\gexf4net.csproj", "{8DA00207-6F73-4BAC-9B53-F4BDF73D9E01}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gexf4net.examples", "gexf4net.examples\gexf4net.examples.csproj", "{2CC20B58-BE80-42ED-AA17-D8A8E47AE830}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gex4net.test", "gex4net.test\gex4net.test.csproj", "{44265C1C-C613-4245-962A-74D3037F62C2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8DA00207-6F73-4BAC-9B53-F4BDF73D9E01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DA00207-6F73-4BAC-9B53-F4BDF73D9E01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DA00207-6F73-4BAC-9B53-F4BDF73D9E01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DA00207-6F73-4BAC-9B53-F4BDF73D9E01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CC20B58-BE80-42ED-AA17-D8A8E47AE830}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CC20B58-BE80-42ED-AA17-D8A8E47AE830}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CC20B58-BE80-42ED-AA17-D8A8E47AE830}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CC20B58-BE80-42ED-AA17-D8A8E47AE830}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44265C1C-C613-4245-962A-74D3037F62C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44265C1C-C613-4245-962A-74D3037F62C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44265C1C-C613-4245-962A-74D3037F62C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44265C1C-C613-4245-962A-74D3037F62C2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

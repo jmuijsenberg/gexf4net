@@ -1,0 +1,10 @@
+D:\GitAhead\gexf4net\src\gexf4net\gexf4net\bin\Debug\gexf4net.dll
+D:\GitAhead\gexf4net\src\gexf4net\gexf4net\bin\Debug\gexf4net.pdb
+D:\GitAhead\gexf4net\src\gexf4net\gexf4net\obj\Debug\gexf4net.csprojResolveAssemblyReference.cache
+D:\GitAhead\gexf4net\src\gexf4net\gexf4net\obj\Debug\gexf4net.dll
+D:\GitAhead\gexf4net\src\gexf4net\gexf4net\obj\Debug\gexf4net.pdb
+D:\GitAhead\gexf4net\src\gexf4net\bin\Debug\gexf4net.dll
+D:\GitAhead\gexf4net\src\gexf4net\bin\Debug\gexf4net.pdb
+D:\GitAhead\gexf4net\src\gexf4net\obj\Debug\gexf4net.csprojResolveAssemblyReference.cache
+D:\GitAhead\gexf4net\src\gexf4net\obj\Debug\gexf4net.dll
+D:\GitAhead\gexf4net\src\gexf4net\obj\Debug\gexf4net.pdb

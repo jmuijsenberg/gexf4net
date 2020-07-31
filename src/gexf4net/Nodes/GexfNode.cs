@@ -7,54 +7,39 @@ using System.Xml;
 
 namespace gexf4net
 {
+    // Example XML output:
+    //
+    //  <node id = "0" label="Hello" />
+    //
     class GexfNode : IGexfNode
     {
-        private GexfSpellList _spells;
+        private const string XmlElementName = "node";
+        private const string XmlAttibuteNameId = "id";
+        private const string XmlAttibuteNameLabel = "label";
+
+        private GexfNodeList _nodes = new GexfNodeList();
 
         public GexfNode()
         {
             Children = new List<IGexfNode>();
-            AttributeValues = new Dictionary<string, string>();
         }
 
         public string Id { get; set; }
         public string Label { get; set; }
         public IList<IGexfNode> Children { get; }
-        public IDictionary<string, string> AttributeValues { get; }
 
         public void Write(XmlWriter writer, IProgress<GexfProgress> progress)
         {
-        }
+            writer.WriteStartElement(XmlElementName);
+            writer.WriteAttributeString(XmlAttibuteNameId, Id);
+            writer.WriteAttributeString(XmlAttibuteNameLabel, Label);
 
-        public void Add(DateTime additionTime)
-        {
-            if (_spells == null)
+            if (_nodes.Count > 0)
             {
-                _spells = new GexfSpellList();
+                _nodes.Write(writer, progress);
             }
 
-            _spells.AddStart(additionTime, true);
-        }
-
-        public void Remove(DateTime removalTime)
-        {
-            if (_spells == null)
-            {
-                _spells = new GexfSpellList();
-            }
-            _spells.AddEnd(removalTime, true);
-        }
-
-        public bool IsValid(DateTime? dateTime)
-        {
-            if ((_spells != null) && dateTime.HasValue)
-            {
-                return _spells.InRange(dateTime.Value);
-            }
-            else
-            {
-                return true;
-            }
+            writer.WriteEndElement();
         }
     }
 }

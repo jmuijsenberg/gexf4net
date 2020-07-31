@@ -9,6 +9,6 @@ namespace gexf4net
     public interface IGexfGraph
     {
         IGexfNode AddNode(string id, string label);
-        IGexfEdge AddEdge(string id, IGexfNode source, IGexfNode target, double weight = 1.0);
+        IGexfEdge AddEdge(string id, IGexfNode source, IGexfNode target, GexfEdgeType edgeType, double weight, string label);
     }
 }

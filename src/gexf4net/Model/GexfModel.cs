@@ -62,8 +62,6 @@ namespace gexf4net
             return null;
         }
 
-        public IGexfGraph Graph => _graph;
-
         public bool Write(IProgress<GexfProgress> progress)
         {
             using (FileStream stream = _modelFile.Create())
@@ -95,6 +93,16 @@ namespace gexf4net
         public bool Read(IProgress<GexfProgress> progress)
         {
             return false;
+        }
+
+        public IGexfNode AddNode(string id, string label)
+        {
+            return _graph.AddNode(id, label);
+        }
+
+        public IGexfEdge AddEdge(string id, IGexfNode source, IGexfNode target, GexfEdgeType edgeType, double weight = 1.0, string label = "")
+        {
+            return _graph.AddEdge(id, source, target, edgeType, weight, label);
         }
     }
 }

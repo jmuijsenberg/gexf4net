@@ -20,33 +20,44 @@ namespace gexf4net
         private const string XmlAttibuteNameTarget = "target";
         private const string XmlAttibuteNameWeight = "weight";
         private const string XmlAttibuteNameEdgeType = "edgetype";
+        private GexfEdgeType _defaultEdgeType;
 
         //private GexfSpellList _spells;
 
-        public GexfEdge()
+        public GexfEdge(GexfEdgeType defaultEdgeType)
         {
-            EdgeType = GexfEdgeType.Undirected;
+            EdgeType = _defaultEdgeType = defaultEdgeType;
             Weight = 1.0;
             //AttributeValues = new Dictionary<string, string>();
         }
 
         public string Id { get; set; }
-        public GexfEdgeType EdgeType { get; set; }
-        public string Label { get; set; }
         public string Source { get; set; }
         public string Target { get; set; }
         public double Weight { get; set; }
+        public string Label { get; set; }
+        public GexfEdgeType EdgeType { get; set; }
+
         //public IDictionary<string, string> AttributeValues { get; }
 
         public void Write(XmlWriter writer, IProgress<GexfProgress> progress)
         {
             writer.WriteStartElement(XmlElementName);
             writer.WriteAttributeString(XmlAttibuteNameId, Id);
-            writer.WriteAttributeString(XmlAttibuteNameLabel, Label);
             writer.WriteAttributeString(XmlAttibuteNameSource, Source);
             writer.WriteAttributeString(XmlAttibuteNameTarget, Target);
-            writer.WriteAttributeString(XmlAttibuteNameWeight, Weight.ToString());
-            writer.WriteAttributeString(XmlAttibuteNameEdgeType, EdgeType.ToString());
+            if (Weight != 1.0)
+            {
+                writer.WriteAttributeString(XmlAttibuteNameWeight, Weight.ToString());
+            }
+            if (Label.Length > 0)
+            {
+                writer.WriteAttributeString(XmlAttibuteNameLabel, Label);
+            }
+            if (EdgeType != _defaultEdgeType)
+            {
+                writer.WriteAttributeString(XmlAttibuteNameEdgeType, EdgeType.ToString());
+            }
             writer.WriteEndElement();
         }
 

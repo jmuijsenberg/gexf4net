@@ -54,14 +54,15 @@ namespace gexf4net
             return node;
         }
 
-        public IGexfEdge AddEdge(string id, IGexfNode source, IGexfNode target, double weight)
+        public IGexfEdge AddEdge(string id, IGexfNode source, IGexfNode target, GexfEdgeType edgeType, double weight, string label)
         {
-            GexfEdge edge = new GexfEdge();
+            GexfEdge edge = new GexfEdge(DefaultEdgeType);
             edge.Id = id;
             edge.Source = source.Id;
             edge.Target = target.Id;
             edge.Weight = weight;
-
+            edge.EdgeType = edgeType;
+            edge.Label = label;
             _edgeList.Add(edge);
             return edge;
         }

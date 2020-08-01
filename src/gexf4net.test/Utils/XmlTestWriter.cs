@@ -20,7 +20,7 @@ namespace gexf4net.test.Utils
                 Indent = true,
                 IndentChars = ("  "),
                 OmitXmlDeclaration = true,
-                Encoding = new UTF8Encoding(false)
+                Encoding = Encoding.UTF8
             };
 
             using (XmlWriter writer = XmlWriter.Create(stream, settings))
@@ -28,7 +28,7 @@ namespace gexf4net.test.Utils
                 element.Write(writer, null);
             }
 
-            ActualOutput = Encoding.UTF8.GetString(stream.ToArray()).Trim();
+            ActualOutput = Encoding.UTF8.GetString(stream.ToArray());
         }
     }
 }

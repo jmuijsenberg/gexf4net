@@ -24,9 +24,10 @@ namespace gexf4net.test.Metadata
         [TestMethod]
         public void GivenCreatorIsEmptyWhenWritingXmlThenCreatorIsNotWritte()
         {
+            string expectedOutput = @"﻿";
             GexfCreatorMetadata metadata = new GexfCreatorMetadata();
             XmlTestWriter writer = new XmlTestWriter(metadata);
-            Assert.IsTrue(writer.ActualOutput.Length == 0);
+            Assert.AreEqual(expectedOutput, writer.ActualOutput);
         }
     }
 }

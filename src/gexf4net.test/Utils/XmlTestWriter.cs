@@ -20,7 +20,7 @@ namespace gexf4net.test.Utils
                 Indent = true,
                 IndentChars = ("  "),
                 OmitXmlDeclaration = true,
-                Encoding = Encoding.UTF8
+                Encoding = new UTF8Encoding(false)
             };
 
             using (XmlWriter writer = XmlWriter.Create(stream, settings))

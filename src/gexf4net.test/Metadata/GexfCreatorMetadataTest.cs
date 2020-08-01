@@ -14,7 +14,7 @@ namespace gexf4net.test.Metadata
         [TestMethod]
         public void GivenCreatorIsNotEmptyWhenWritingXmlThenCreatorIsWritten()
         {
-            string expectedOutput = @"﻿<creator>John Doe</creator>";
+            string expectedOutput = "﻿<creator>John Doe</creator>";
             GexfCreatorMetadata metadata = new GexfCreatorMetadata();
             metadata.Creator = "John Doe";
             XmlTestWriter writer = new XmlTestWriter(metadata);
@@ -24,10 +24,9 @@ namespace gexf4net.test.Metadata
         [TestMethod]
         public void GivenCreatorIsEmptyWhenWritingXmlThenCreatorIsNotWritte()
         {
-            string expectedOutput = @"﻿";
             GexfCreatorMetadata metadata = new GexfCreatorMetadata();
             XmlTestWriter writer = new XmlTestWriter(metadata);
-            Assert.AreEqual(expectedOutput, writer.ActualOutput);
+            Assert.IsTrue(writer.ActualOutput.Length == 0);
         }
     }
 }

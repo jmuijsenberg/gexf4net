@@ -10,10 +10,10 @@ namespace gexf4net.test.Metadata
         [TestMethod]
         public void GivenMetadataIsNotEmptyWhenWritingXmlThenMetadataIsWritten()
         {
-            string expectedOutput = "<meta>\n" +
-                                    "  <creator>John Doe</Creator>\n" +
-                                    "  <description>Some description</description>\n" +
-                                    "  <keywords>Keyword Metadata</keywords>\n" +
+            string expectedOutput = "<meta>\r\n" +
+                                    "  <creator>John Doe</creator>\r\n" +
+                                    "  <description>Some description</description>\r\n" +
+                                    "  <keywords>Keyword Metadata</keywords>\r\n" +
                                     "</meta>";
             GexfMetadata metadata = new GexfMetadata();
             metadata.Creator = "John Doe";
@@ -27,10 +27,9 @@ namespace gexf4net.test.Metadata
         [TestMethod]
         public void GivenMetadatIsEmptyWhenWritingXmlThenMetadataIsNotWritten()
         {
-            string expectedOutput = @"﻿";
             GexfMetadata metadata = new GexfMetadata();
             XmlTestWriter writer = new XmlTestWriter(metadata);
-            Assert.AreEqual(expectedOutput, writer.ActualOutput);
+            Assert.IsTrue(writer.ActualOutput.Length == 0);
         }
     }
 }

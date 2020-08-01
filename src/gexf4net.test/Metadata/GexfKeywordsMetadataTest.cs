@@ -11,20 +11,22 @@ namespace gexf4net.test.Metadata
         [TestMethod]
         public void GivenCreatorIsNotEmptyWhenWritingXmlThenCreatorIsWritten()
         {
-            string expectedOutput = @"﻿<keywords>Keyword Metadata</keywords>";
+            string expectedOutput = "﻿<keywords>Keyword Metadata</keywords>";
             GexfKeywordsMetadata metadata = new GexfKeywordsMetadata();
             metadata.Keywords = "Keyword Metadata";
             XmlTestWriter writer = new XmlTestWriter(metadata);
+
+            Diagnostic.Compare(expectedOutput, writer.ActualOutput);
+
             Assert.AreEqual(expectedOutput, writer.ActualOutput);
         }
 
         [TestMethod]
         public void GivenCreatorIsEmptyWhenWritingXmlThenCreatorIsNotWritte()
         {
-            string expectedOutput = @"﻿";
             GexfKeywordsMetadata metadata = new GexfKeywordsMetadata();
             XmlTestWriter writer = new XmlTestWriter(metadata);
-            Assert.AreEqual(expectedOutput, writer.ActualOutput);
+            Assert.IsTrue(writer.ActualOutput.Length == 0);
         }
     }
 }

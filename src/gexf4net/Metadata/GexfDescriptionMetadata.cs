@@ -12,7 +12,7 @@ namespace gexf4net
     //
     // <description>A hello world! file</description>
     //
-    class GexfDescriptionMetadata
+    internal class GexfDescriptionMetadata : IGexfElement
     {
         private const string XmlElementName = "description";
 
@@ -24,9 +24,12 @@ namespace gexf4net
 
         public void Write(XmlWriter writer, IProgress<GexfProgress> progress)
         {
-            writer.WriteStartElement(XmlElementName);
-            writer.WriteValue(Description);
-            writer.WriteEndElement();
+            if (!string.IsNullOrEmpty(Description))
+            {
+                writer.WriteStartElement(XmlElementName);
+                writer.WriteValue(Description);
+                writer.WriteEndElement();
+            }
         }
     }
 }

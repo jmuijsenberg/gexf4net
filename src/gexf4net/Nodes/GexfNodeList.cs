@@ -15,7 +15,7 @@ namespace gexf4net
     //    ...
     //  </nodes>
     //
-    class GexfNodeList
+    internal class GexfNodeList : IGexfElement
     {
         private const string XmlElementName = "nodes";
         private const string XmlAttibuteNameCount = "count";

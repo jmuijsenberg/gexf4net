@@ -13,7 +13,7 @@ namespace gexf4net
     //   <edge id = "0" source="0" target="1" weight="3.167" />
     //   ...
     // </edges>
-    class GexfEdgeList
+    internal class GexfEdgeList : IGexfElement
     {
         private const string XmlElementName = "edges";
         private const string XmlAttibuteNameCount = "count";

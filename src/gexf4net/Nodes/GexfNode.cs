@@ -11,7 +11,7 @@ namespace gexf4net
     //
     //  <node id = "0" label="Hello" />
     //
-    class GexfNode : IGexfNode
+    internal class GexfNode : IGexfNode , IGexfElement
     {
         private const string XmlElementName = "node";
         private const string XmlAttibuteNameId = "id";

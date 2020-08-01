@@ -16,7 +16,7 @@ namespace gexf4net
     //   <keywords>hello world</keywords>
     // </meta>
     //
-    class GexfMetadata
+    internal class GexfMetadata : IGexfElement
     {
         private const string XmlElementName = "meta";
         private const string XmlAttibuteNameLastModifiedDate = "lastmodifieddate";
@@ -29,11 +29,12 @@ namespace gexf4net
         {
         }
 
-        public DateTime LastModifiedDate { get; set; }
+        public DateTime? LastModifiedDate { get; set; }
 
         public string Creator
         {
             get { return _creatorMetadata.Creator; }
+            set { _creatorMetadata.Creator = value; }
         }
 
         public string Description
@@ -50,14 +51,23 @@ namespace gexf4net
 
         public void Write(XmlWriter writer, IProgress<GexfProgress> progress)
         {
-            writer.WriteStartElement(XmlElementName);
-            writer.WriteAttributeString(XmlAttibuteNameLastModifiedDate, LastModifiedDate.ToString());
+            if (!string.IsNullOrEmpty(Creator) ||
+                !string.IsNullOrEmpty(Description) ||
+                !string.IsNullOrEmpty(Keywords) ||
+                LastModifiedDate.HasValue)
+            {
+                writer.WriteStartElement(XmlElementName);
+                if (LastModifiedDate.HasValue)
+                {
+                    writer.WriteAttributeString(XmlAttibuteNameLastModifiedDate, LastModifiedDate.ToString());
+                }
 
-            _creatorMetadata.Write(writer, progress);
-            _descriptionMetadata.Write(writer, progress);
-            _keywordsMetadata.Write(writer, progress);
+                _creatorMetadata.Write(writer, progress);
+                _descriptionMetadata.Write(writer, progress);
+                _keywordsMetadata.Write(writer, progress);
 
-            writer.WriteEndElement();
+                writer.WriteEndElement();
+            }
         }
     }
 }

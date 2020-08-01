@@ -1,33 +1,34 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using gexf4net;
 using System.IO;
 using System.Xml;
-using gexf4net;
 using System.Text;
 
-namespace gex4net.test.Metadata
+namespace gexf4net.test.Utils
 {
-    [TestClass]
-    public class GexfCreatorMetadataTest
+    class XmlTestWriter
     {
-        [TestMethod]
-        public void TestWrite()
+        public string ActualOutput { get; private set; }
+
+        public XmlTestWriter(IGexfElement element)
         {
             MemoryStream stream = new MemoryStream();
 
             XmlWriterSettings settings = new XmlWriterSettings
             {
+                Indent = true,
+                IndentChars = ("  "),
                 OmitXmlDeclaration = true,
+                Encoding = new UTF8Encoding(false)
             };
 
             using (XmlWriter writer = XmlWriter.Create(stream, settings))
             {
-                GexfCreatorMetadata metadata = new GexfCreatorMetadata();
-                metadata.Write(writer, null);
+                element.Write(writer, null);
             }
 
-            string output = Encoding.UTF8.GetString(stream.ToArray());
-            Assert.AreEqual(@"﻿<creator>DESKTOP-Q6732S7\jvdmu</creator>", output);
+            ActualOutput = Encoding.UTF8.GetString(stream.ToArray()).Trim();
         }
     }
 }

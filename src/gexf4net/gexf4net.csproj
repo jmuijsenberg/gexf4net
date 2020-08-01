@@ -18,7 +18,7 @@
     <Optimize>false</Optimize>
     <OutputPath>..\..\build\bin\</OutputPath>
     <BaseIntermediateOutputPath>..\..\build\obj\</BaseIntermediateOutputPath>
-    <IntermediateOutputPath>$(BaseIntermediateOutputPath)$(Configuration)\</IntermediateOutputPath>		
+    <IntermediateOutputPath>$(BaseIntermediateOutputPath)$(Configuration)\</IntermediateOutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -28,7 +28,7 @@
     <Optimize>true</Optimize>
     <OutputPath>..\..\build\bin\</OutputPath>
     <BaseIntermediateOutputPath>..\..\build\obj\</BaseIntermediateOutputPath>
-    <IntermediateOutputPath>$(BaseIntermediateOutputPath)$(Configuration)\</IntermediateOutputPath>		
+    <IntermediateOutputPath>$(BaseIntermediateOutputPath)$(Configuration)\</IntermediateOutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -53,6 +53,7 @@
     <Compile Include="GexfProgress.cs" />
     <Compile Include="Graph\GexfGraph.cs" />
     <Compile Include="Graph\GexfIdType.cs" />
+    <Compile Include="IGexfElement.cs" />
     <Compile Include="Metadata\GexfCreatorMetadata.cs" />
     <Compile Include="Metadata\GexfDescriptionMetadata.cs" />
     <Compile Include="Metadata\GexfKeywordsMetadata.cs" />
@@ -65,7 +66,6 @@
     <Compile Include="Nodes\GexfNodeList.cs" />
     <Compile Include="Nodes\GexfNodeVisualization.cs" />
     <Compile Include="Time\GexfSpellList.cs" />
-    <Compile Include="Time\GexfStringList.cs" />
     <Compile Include="Time\GexfTimeFormat.cs" />
     <Compile Include="Time\GexfSpell.cs" />
     <Compile Include="Edges\IGexfEdge.cs" />

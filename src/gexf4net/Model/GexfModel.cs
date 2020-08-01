@@ -38,6 +38,7 @@ namespace gexf4net
         public string Creator
         {
             get { return _metadata.Creator; }
+            set { _metadata.Creator = value; }
         }
 
         public string Description
@@ -52,9 +53,10 @@ namespace gexf4net
             set { _metadata.Keywords = value; }
         }
 
-        public DateTime LastModifiedDate
+        public DateTime? LastModifiedDate
         {
             get { return _metadata.LastModifiedDate; }
+            set { _metadata.LastModifiedDate = value; }
         }
 
         public IGexfGraph GetGraphAtDateTime(DateTime dateTime)

@@ -11,7 +11,7 @@ namespace gexf4net
     //
     // <edge id = "0" source="0" target="1" weight="3.167" />
     //
-    class GexfEdge : IGexfEdge
+    internal class GexfEdge : IGexfEdge , IGexfElement
     {
         private const string XmlElementName = "edge";
         private const string XmlAttibuteNameId = "id";

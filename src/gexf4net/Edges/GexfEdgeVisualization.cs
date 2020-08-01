@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace gexf4net
 {
-    class GexfEdgeVisualization
+    internal class GexfEdgeVisualization : IGexfElement
     {
+        public void Write(XmlWriter writer, IProgress<GexfProgress> progress)
+        {
+        }
     }
 }

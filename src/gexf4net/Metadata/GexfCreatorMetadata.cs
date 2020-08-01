@@ -12,22 +12,24 @@ namespace gexf4net
     //
     // <creator>Gephi.org</creator>
     //
-    public class GexfCreatorMetadata
+    internal class GexfCreatorMetadata : IGexfElement
     {
         private const string XmlElementName = "creator";
 
-        public string Creator { get; }
+        public string Creator { get; set; }
 
         public GexfCreatorMetadata()
         {
-            Creator = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
         }
 
         public void Write(XmlWriter writer, IProgress<GexfProgress> progress)
         {
-            writer.WriteStartElement(XmlElementName);
-            writer.WriteValue(Creator);
-            writer.WriteEndElement();
+            if (!string.IsNullOrEmpty(Creator))
+            {
+                writer.WriteStartElement(XmlElementName);
+                writer.WriteValue(Creator);
+                writer.WriteEndElement();
+            }
         }
     }
 }

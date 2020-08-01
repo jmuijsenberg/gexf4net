@@ -20,7 +20,7 @@ namespace gexf4net
     //     ...
     //   </edges>
     //  </graph>
-    class GexfGraph : IGexfGraph
+    internal class GexfGraph : IGexfGraph, IGexfElement
     {
         private const string XmlElementName = "graph";
         private const string XmlAttibuteNameDefaultEdgeType = "defaultedgetype";

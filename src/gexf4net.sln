@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gexf4net", "gexf4net\gexf4n
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gexf4net.examples", "gexf4net.examples\gexf4net.examples.csproj", "{2CC20B58-BE80-42ED-AA17-D8A8E47AE830}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gex4net.test", "gex4net.test\gex4net.test.csproj", "{44265C1C-C613-4245-962A-74D3037F62C2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gexf4net.test", "gexf4net.test\gexf4net.test.csproj", "{44265C1C-C613-4245-962A-74D3037F62C2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

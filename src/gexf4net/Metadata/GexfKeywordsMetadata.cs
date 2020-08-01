@@ -12,7 +12,7 @@ namespace gexf4net
     //
     // <keywords>hello world</keywords>
     //
-    class GexfKeywordsMetadata
+    internal class GexfKeywordsMetadata : IGexfElement
     {
         private const string XmlElementName = "keywords";
 
@@ -24,9 +24,12 @@ namespace gexf4net
 
         public void Write(XmlWriter writer, IProgress<GexfProgress> progress)
         {
-            writer.WriteStartElement(XmlElementName);
-            writer.WriteValue(Keywords);
-            writer.WriteEndElement();
+            if (!string.IsNullOrEmpty(Keywords))
+            {
+                writer.WriteStartElement(XmlElementName);
+                writer.WriteValue(Keywords);
+                writer.WriteEndElement();
+            }
         }
     }
 }

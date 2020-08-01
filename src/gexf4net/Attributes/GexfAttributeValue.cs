@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace gexf4net
 {
-    class GexfAttributeValue<OwnerType>
+    internal class GexfAttributeValue<OwnerType> : IGexfElement
     {
         private GexfAttribute<OwnerType> _attribute;
         private GexfSpellList _spells;
@@ -28,6 +29,10 @@ namespace gexf4net
             {
                 return true;
             }
+        }
+
+        public void Write(XmlWriter writer, IProgress<GexfProgress> progress)
+        {
         }
     }
 }

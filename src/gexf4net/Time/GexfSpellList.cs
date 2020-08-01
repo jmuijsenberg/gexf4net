@@ -4,10 +4,11 @@ using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace gexf4net
 {
-    class GexfSpellList
+    internal class GexfSpellList : IGexfElement
     {
         private List<GexfSpell> _spells = new List<GexfSpell>();
 
@@ -50,6 +51,10 @@ namespace gexf4net
             GexfSpell current = Find(end);
             current.End = end;
             current.EndInclusive = inclusive;
+        }
+
+        public void Write(XmlWriter writer, IProgress<GexfProgress> progress)
+        {
         }
     }
 }

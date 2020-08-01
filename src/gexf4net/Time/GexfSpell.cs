@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace gexf4net
 {
-    class GexfSpell
+    internal class GexfSpell : IGexfElement
     {
         public GexfSpell()
         {
@@ -23,6 +24,10 @@ namespace gexf4net
         {
             return ((!Start.HasValue || (dateTime > Start.Value) || (StartInclusive && (dateTime == Start.Value)) &&
                     (!End.HasValue)  || (dateTime < End.Value)   || (EndInclusive   && (dateTime == End.Value  ))    ));
+        }
+
+        public void Write(XmlWriter writer, IProgress<GexfProgress> progress)
+        {
         }
     }
 }

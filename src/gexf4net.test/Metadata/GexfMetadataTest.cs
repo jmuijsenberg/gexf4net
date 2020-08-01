@@ -21,7 +21,7 @@ namespace gexf4net.test.Metadata
             metadata.Keywords = "Keyword Metadata";
             //metadata.LastModifiedDate = new DateTime(2020, 8, 1); // TODO: Add date
             XmlTestWriter writer = new XmlTestWriter(metadata);
-            Assert.AreEqual(expectedOutput, writer.ActualOutput);
+            Assert.AreEqual(expectedOutput.StripBom(), writer.ActualOutput.StripBom());
         }
 
         [TestMethod]
@@ -29,7 +29,7 @@ namespace gexf4net.test.Metadata
         {
             GexfMetadata metadata = new GexfMetadata();
             XmlTestWriter writer = new XmlTestWriter(metadata);
-            Assert.IsTrue(writer.ActualOutput.Length == 0);
+            Assert.IsTrue(writer.ActualOutput.StripBom().Length == 0);
         }
     }
 }

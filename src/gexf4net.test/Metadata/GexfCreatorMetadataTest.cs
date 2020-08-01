@@ -18,7 +18,7 @@ namespace gexf4net.test.Metadata
             GexfCreatorMetadata metadata = new GexfCreatorMetadata();
             metadata.Creator = "John Doe";
             XmlTestWriter writer = new XmlTestWriter(metadata);
-            Assert.AreEqual(expectedOutput, writer.ActualOutput);
+            Assert.AreEqual(expectedOutput.StripBom(), writer.ActualOutput.StripBom());
         }
 
         [TestMethod]
@@ -26,7 +26,7 @@ namespace gexf4net.test.Metadata
         {
             GexfCreatorMetadata metadata = new GexfCreatorMetadata();
             XmlTestWriter writer = new XmlTestWriter(metadata);
-            Assert.IsTrue(writer.ActualOutput.Length == 0);
+            Assert.IsTrue(writer.ActualOutput.StripBom().Length == 0);
         }
     }
 }

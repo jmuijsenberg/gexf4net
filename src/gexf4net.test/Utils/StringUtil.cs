@@ -6,8 +6,13 @@ using System.Threading.Tasks;
 
 namespace gexf4net.test.Utils
 {
-    class Diagnostic
+    public static class StringUtils
     {
+        public static string StripBom(this string input)
+        {
+            return input.Trim(new char[] { '\uFEFF' });
+        }
+
         public static void Compare(string expected, string actual)
         {
             char[] e = expected.ToCharArray();

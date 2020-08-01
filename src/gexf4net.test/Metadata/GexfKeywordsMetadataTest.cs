@@ -15,10 +15,7 @@ namespace gexf4net.test.Metadata
             GexfKeywordsMetadata metadata = new GexfKeywordsMetadata();
             metadata.Keywords = "Keyword Metadata";
             XmlTestWriter writer = new XmlTestWriter(metadata);
-
-            Diagnostic.Compare(expectedOutput, writer.ActualOutput);
-
-            Assert.AreEqual(expectedOutput, writer.ActualOutput);
+            Assert.AreEqual(expectedOutput.StripBom(), writer.ActualOutput.StripBom());
         }
 
         [TestMethod]
@@ -26,7 +23,7 @@ namespace gexf4net.test.Metadata
         {
             GexfKeywordsMetadata metadata = new GexfKeywordsMetadata();
             XmlTestWriter writer = new XmlTestWriter(metadata);
-            Assert.IsTrue(writer.ActualOutput.Length == 0);
+            Assert.IsTrue(writer.ActualOutput.StripBom().Length == 0);
         }
     }
 }

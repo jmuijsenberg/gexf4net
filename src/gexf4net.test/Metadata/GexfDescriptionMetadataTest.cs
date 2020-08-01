@@ -15,7 +15,7 @@ namespace gexf4net.test.Metadata
             GexfDescriptionMetadata metadata = new GexfDescriptionMetadata();
             metadata.Description = "Some description";
             XmlTestWriter writer = new XmlTestWriter(metadata);
-            Assert.AreEqual(expectedOutput, writer.ActualOutput);
+            Assert.AreEqual(expectedOutput.StripBom(), writer.ActualOutput.StripBom());
         }
 
         [TestMethod]
@@ -23,7 +23,7 @@ namespace gexf4net.test.Metadata
         {
             GexfDescriptionMetadata metadata = new GexfDescriptionMetadata();
             XmlTestWriter writer = new XmlTestWriter(metadata);
-            Assert.IsTrue(writer.ActualOutput.Length == 0);
+            Assert.IsTrue(writer.ActualOutput.StripBom().Length == 0);
         }
     }
 }

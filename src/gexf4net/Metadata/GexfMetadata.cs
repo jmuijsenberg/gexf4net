@@ -8,13 +8,13 @@ using System.Xml;
 
 namespace gexf4net
 {
-    // Example XML output:
+    // RelaxNG specification
     //
-    // <meta lastmodifieddate = "2009􀀀03􀀀20" >
-    //   <creator>Gephi.org</creator>
-    //   <description>A hello world! file</description>
-    //   <keywords>hello world</keywords>
-    // </meta>
+    // meta-content =
+    //     attribute lastmodifieddate { xsd:date }?
+    //   & element creator { text }?
+    //   & element keywords { text }?
+    //   & element description { text }?
     //
     internal class GexfMetadata : IGexfElement
     {

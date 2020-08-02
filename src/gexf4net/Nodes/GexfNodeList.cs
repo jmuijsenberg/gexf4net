@@ -7,13 +7,11 @@ using System.Xml;
 
 namespace gexf4net
 {
-    // Example XML output:
+    // RelaxNG specification
     //
-    //  <nodes count="3">
-    //    <node id = "0" label="Hello" />
-    //    <node id = "1" label="Word" />
-    //    ...
-    //  </nodes>
+    // nodes-content =
+    //     attribute count { xsd:nonNegativeInteger }?
+    //   & element node { node-content }*
     //
     internal class GexfNodeList : IGexfElement
     {

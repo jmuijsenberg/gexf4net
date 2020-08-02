@@ -8,6 +8,12 @@ using System.Xml;
 
 namespace gexf4net
 {
+    // RelaxNG specification
+    //
+    // # new point
+    // spells-content =
+    //     element spell { spell-content }+
+    //
     internal class GexfTimePeriodList : IGexfElement
     {
         private List<GexfTimePeriod> _spells = new List<GexfTimePeriod>();

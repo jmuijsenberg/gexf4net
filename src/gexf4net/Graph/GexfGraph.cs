@@ -7,19 +7,48 @@ using System.Xml;
 
 namespace gexf4net
 {
-    // Example XML output:
+    // RelaxNG specification
     //
-    //  <graph defaultedgetype="directed">
-    //    <nodes>
-    //      <node id = "0" label="Hello" />
-    //      <node id = "1" label="Word" />
-    //      ...
-    //    </nodes>
-    //   <edges>
-    //     <edge id = "0" source="0" target="1" weight="3.167" />
-    //     ...
-    //   </edges>
-    //  </graph>
+    // graph-content =
+    //     attribute defaultedgetype { defaultedgetype-type }?
+    //   & attribute idtype { idtype-type }?
+    //   & attribute mode { mode-type }?
+    //   & (element nodes { nodes-content }
+    //   ,  element edges { edges-content })
+    //
+    // # extension point dynamics
+    // graph-content &=
+    //     attribute timeformat { timeformat-type }?
+    //   & (
+    //       ( attribute start { time-type }?
+    //       | attribute startopen { time-type }?)
+    //       & 
+    //       ( attribute end { time-type }?
+    //       & attribute endopen { time-type }?)
+    //   )
+    //
+    // # extension point attributes
+    // graph-content &=
+    //     element attributes { attributes-content }*
+    // 
+    // defaultedgetype-type = [ a:defaultValue = "undirected" ] 
+    //     string "directed" | 
+    //     string "undirected" | 
+    //     string "mutual"
+    // 
+    // # data types
+    //
+    // id-type = 
+    //     xsd:string | xsd:integer
+    // 
+    // idtype-type = [ a:defaultValue = "string" ] 
+    //     string "integer" |
+    //     string "string"
+    //
+    // mode-type = [ a:defaultValue = "static" ] 
+    //     string "static" | 
+    //     string "dynamic" 
+    //
     internal class GexfGraph : IGexfGraph, IGexfElement
     {
         private const string XmlElementName = "graph";

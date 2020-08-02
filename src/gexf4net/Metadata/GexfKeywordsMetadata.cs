@@ -8,9 +8,9 @@ using System.Xml;
 
 namespace gexf4net
 {
-    // Example XML output:
+    // RelaxNG specification
     //
-    // <keywords>hello world</keywords>
+    // element keywords { text }?
     //
     internal class GexfKeywordsMetadata : IGexfElement
     {

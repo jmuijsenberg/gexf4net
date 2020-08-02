@@ -7,10 +7,34 @@ using System.Xml;
 
 namespace gexf4net
 {
-    // Example XML output:
+    // RelaxNG specification
+    // 
+    // node-content =
+    //     attribute id { id-type }
+    //   & attribute label { xsd:token }?
     //
-    //  <node id = "0" label="Hello" />
-    //
+    // # extension point dynamics
+    // node-content &= (
+    //       ( attribute start { time-type }?
+    //       | attribute startopen { time-type }?)
+    //       & 
+    //       ( attribute end { time-type }?
+    //       & attribute endopen { time-type }?)
+    //   )
+    //   & element spells { spells-content }?
+    // 
+    // # extension point attributes
+    // node-content &=
+    //     element attvalues { attvalues-content }?
+    // 
+    // # extension point hierarchy
+    // node-content &=
+    //     attribute pid { id-type }?
+    //   & element nodes { nodes-content }?
+    //   & element edges { edges-content }?
+    // 
+    // Note: dynamic weight can be obtained by using the reserved title "weight" in attributes
+    // 
     internal class GexfNode : IGexfNode , IGexfElement
     {
         private const string XmlElementName = "node";

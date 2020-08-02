@@ -6,6 +6,19 @@ using System.Threading.Tasks;
 
 namespace gexf4net
 {
+    // RelaxNG specification
+    //
+    // # new datatype
+    // attrtype-type =
+    //     string "integer" | 
+    //     string "long" | 
+    //     string "double" | 
+    //     string "float" | 
+    //     string "boolean" | 
+    //     string "liststring" | 
+    //     string "string" |
+    //     string "anyURI"
+    // 
     public enum GexfAttributeType
     {
         Integer,

@@ -8,9 +8,9 @@ using System.Xml;
 
 namespace gexf4net
 {
-    // Example XML output:
+    // RelaxNG specification
     //
-    // <creator>Gephi.org</creator>
+    // element creator { text }?
     //
     internal class GexfCreatorMetadata : IGexfElement
     {

@@ -8,6 +8,16 @@ using System.Xml;
 
 namespace gexf4net
 {
+	// RelaxNG specification
+	//
+	// start = element gexf { gexf-content }
+	// 
+	// gexf-content = 
+	//     attribute version { string "1.2" }
+	//   & attribute variant { xsd:string }?
+	//   & (element meta { meta-content }?
+	//   ,  element graph { graph-content })
+	//  
     public class GexfModel
     {
         private const string XmlElementNameRoot = "gexf";

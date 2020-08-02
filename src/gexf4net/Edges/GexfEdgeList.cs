@@ -7,12 +7,12 @@ using System.Xml;
 
 namespace gexf4net
 {
-    // Example XML output:
+    // RelaxNG specification
+    // 
+    // edges-content =
+     //    attribute count { xsd:nonNegativeInteger }?
+    //   & element edge { edge-content }*
     //
-    // <edges count="4>
-    //   <edge id = "0" source="0" target="1" weight="3.167" />
-    //   ...
-    // </edges>
     internal class GexfEdgeList : IGexfElement
     {
         private const string XmlElementName = "edges";

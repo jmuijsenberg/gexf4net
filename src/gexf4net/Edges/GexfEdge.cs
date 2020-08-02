@@ -7,9 +7,45 @@ using System.Xml;
 
 namespace gexf4net
 {
-    // Example XML output:
+    // RelaxNG specification
     //
-    // <edge id = "0" source="0" target="1" weight="3.167" />
+    // edge-content =
+    //     attribute id { id-type }
+    //   & attribute type { edgetype-type }?
+    //   & attribute label { xsd:token }?
+    //   & attribute source { id-type }
+    //   & attribute target { id-type }
+    //   & attribute weight { weight-type }?
+    // 
+    // # extension point dynamics
+    // edge-content &= (
+    //       ( attribute start { time-type }?
+    //       | attribute startopen { time-type }?)
+    //       & 
+    //       ( attribute end { time-type }?
+    //       & attribute endopen { time-type }?)
+    //   )
+    //   & element spells { spells-content }?
+    // 
+    // # extension point attributes
+    // edge-content &=
+    //     element attvalues { attvalues-content }?
+    // 
+    // # data types
+    // id-type = 
+    //     xsd:string | xsd:integer
+    // 
+    // idtype-type = [ a:defaultValue = "string" ] 
+    //     string "integer" |
+    //     string "string"
+    // 
+    // edgetype-type = [ a:defaultValue = "undirected" ] 
+    //     string "directed" | 
+    //     string "undirected" | 
+    //     string "mutual"
+    // 
+    // weight-type = [ a:defaultValue = "1.0" ] 
+    //     xsd:float
     //
     internal class GexfEdge : IGexfEdge , IGexfElement
     {

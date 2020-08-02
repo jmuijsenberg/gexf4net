@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="Attributes\GexfAttributeType.cs" />
     <Compile Include="Attributes\GexfAttributeValue.cs" />
+    <Compile Include="Attributes\GexfAttributeValueList.cs" />
     <Compile Include="Edges\GexfEdge.cs" />
     <Compile Include="Edges\GexfEdgeList.cs" />
     <Compile Include="Edges\GexfEdgeType.cs" />
@@ -65,9 +66,9 @@
     <Compile Include="Attributes\GexfAttributeList.cs" />
     <Compile Include="Nodes\GexfNodeList.cs" />
     <Compile Include="Nodes\GexfNodeVisualization.cs" />
-    <Compile Include="Time\GexfSpellList.cs" />
+    <Compile Include="Time\GexfTimePeriodList.cs" />
     <Compile Include="Time\GexfTimeFormat.cs" />
-    <Compile Include="Time\GexfSpell.cs" />
+    <Compile Include="Time\GexfTimePeriod.cs" />
     <Compile Include="Edges\IGexfEdge.cs" />
     <Compile Include="Graph\IGexfGraph.cs" />
     <Compile Include="Nodes\IGexfNode.cs" />

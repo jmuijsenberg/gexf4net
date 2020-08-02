@@ -10,7 +10,7 @@ namespace gexf4net
     internal class GexfAttributeValue<OwnerType> : IGexfElement
     {
         private GexfAttribute<OwnerType> _attribute;
-        private GexfSpellList _spells;
+        private GexfTimePeriodList _spells;
 
         public GexfAttributeValue(GexfAttribute<OwnerType> attribute)
         {

@@ -8,27 +8,27 @@ using System.Xml;
 
 namespace gexf4net
 {
-    internal class GexfSpellList : IGexfElement
+    internal class GexfTimePeriodList : IGexfElement
     {
-        private List<GexfSpell> _spells = new List<GexfSpell>();
+        private List<GexfTimePeriod> _spells = new List<GexfTimePeriod>();
 
-        public GexfSpellList()
+        public GexfTimePeriodList()
         {
-            _spells = new List<GexfSpell>();
+            _spells = new List<GexfTimePeriod>();
         }
 
-        public IEnumerable<GexfSpell> Spells => _spells;
+        public IEnumerable<GexfTimePeriod> Spells => _spells;
 
         public bool InRange(DateTime dateTime)
         {
             return Find(dateTime) != null;
         }
 
-        private GexfSpell Find(DateTime dateTime)
+        private GexfTimePeriod Find(DateTime dateTime)
         {
-            GexfSpell found = null;
+            GexfTimePeriod found = null;
 
-            foreach (GexfSpell spell in _spells)
+            foreach (GexfTimePeriod spell in _spells)
             {
                 if (spell.InRange(dateTime))
                 {
@@ -42,13 +42,13 @@ namespace gexf4net
         public void AddStart(DateTime start, bool inclusive)
         {
             Contract.Requires(Find(start) == null);
-            _spells.Add(new GexfSpell() { Start = start, StartInclusive = inclusive});
+            _spells.Add(new GexfTimePeriod() { Start = start, StartInclusive = inclusive});
         }
 
         public void AddEnd(DateTime end, bool inclusive)
         {
             Contract.Requires(Find(end) != null);
-            GexfSpell current = Find(end);
+            GexfTimePeriod current = Find(end);
             current.End = end;
             current.EndInclusive = inclusive;
         }

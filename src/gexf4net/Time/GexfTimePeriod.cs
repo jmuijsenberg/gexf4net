@@ -7,9 +7,9 @@ using System.Xml;
 
 namespace gexf4net
 {
-    internal class GexfSpell : IGexfElement
+    internal class GexfTimePeriod : IGexfElement
     {
-        public GexfSpell()
+        public GexfTimePeriod()
         {
             StartInclusive = false;
             EndInclusive = false;

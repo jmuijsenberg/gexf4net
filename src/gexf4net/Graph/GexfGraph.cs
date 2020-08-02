@@ -43,7 +43,7 @@ namespace gexf4net
         public IList<IGexfNode> Nodes { get; }
         public IList<IGexfEdge> Edges { get; }
         public GexfTimeFormat TimeFormat { get; set; }
-        public GexfSpell Lifetime { get; set; }
+        public GexfTimePeriod Lifetime { get; set; }
 
         public IGexfNode AddNode(string id, string label)
         {

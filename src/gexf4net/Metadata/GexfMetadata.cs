@@ -59,7 +59,7 @@ namespace gexf4net
                 writer.WriteStartElement(XmlElementName);
                 if (LastModifiedDate.HasValue)
                 {
-                    writer.WriteAttributeString(XmlAttibuteNameLastModifiedDate, LastModifiedDate.ToString());
+                    writer.WriteAttributeString(XmlAttibuteNameLastModifiedDate, LastModifiedDate.Value.ToString("yyyy-MM-dd"));
                 }
 
                 _creatorMetadata.Write(writer, progress);

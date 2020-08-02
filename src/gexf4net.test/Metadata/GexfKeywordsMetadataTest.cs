@@ -8,22 +8,24 @@ namespace gexf4net.test.Metadata
     [TestClass]
     public class GexfKeywordsMetadataTest
     {
+        private const string XmlOutput = "﻿<keywords>Keyword Metadata</keywords>";
+
         [TestMethod]
         public void GivenCreatorIsNotEmptyWhenWritingXmlThenCreatorIsWritten()
         {
-            string expectedOutput = "﻿<keywords>Keyword Metadata</keywords>";
+
             GexfKeywordsMetadata metadata = new GexfKeywordsMetadata();
             metadata.Keywords = "Keyword Metadata";
-            XmlTestWriter writer = new XmlTestWriter(metadata);
-            Assert.AreEqual(expectedOutput.StripBom(), writer.ActualOutput.StripBom());
+            XmlTestWriter writer = new XmlTestWriter(metadata, XmlOutput);
+            Assert.AreEqual(writer.ExpectedNormalizedXmlOutput, writer.ActualNormalizedXmlOutput);
         }
 
         [TestMethod]
         public void GivenCreatorIsEmptyWhenWritingXmlThenCreatorIsNotWritte()
         {
             GexfKeywordsMetadata metadata = new GexfKeywordsMetadata();
-            XmlTestWriter writer = new XmlTestWriter(metadata);
-            Assert.IsTrue(writer.ActualOutput.StripBom().Length == 0);
+            XmlTestWriter writer = new XmlTestWriter(metadata, "");
+            Assert.IsTrue(writer.ActualNormalizedXmlOutput.Length == 0);
         }
     }
 }

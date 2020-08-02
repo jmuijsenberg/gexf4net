@@ -10,9 +10,16 @@ namespace gexf4net
 {
     public class GexfModel
     {
-        private const string XmlRootElementName = "gexf";
+        private const string XmlElementNameRoot = "gexf";
         private const string XmlNamespace = "http://www.gexf.net/1.2draft";
-        private const string XMlVersionAttributeName = "version";
+
+        private const string XMlAttributeNameXsi = "xmlns:xsi";
+        private const string XMlAttributeValueXsi = "http://www.w3.org/2001/XMLSchema􀀀instance";
+
+        private const string XMlAttributeNameSchemaLocation = "xsi:schemaLocationn";
+        private const string XMlAttributeValueSchemaLocation = "http://www.gexf.net/1.2draft http://www.gexf.net/1.2draft/gexf.xsd";
+
+        private const string XMlAttributeNameVersion = "version";
 
         private GexfMode _mode;
         private GexfMetadata _metadata = new GexfMetadata();
@@ -78,8 +85,10 @@ namespace gexf4net
                 {
                     writer.WriteStartDocument();
 
-                    writer.WriteStartElement(XmlRootElementName, XmlNamespace);
-                    writer.WriteAttributeString(XMlVersionAttributeName, Version);
+                    writer.WriteStartElement(XmlElementNameRoot, XmlNamespace);
+                    writer.WriteAttributeString(XMlAttributeNameXsi, XMlAttributeValueXsi);
+                    writer.WriteAttributeString(XMlAttributeNameSchemaLocation, XMlAttributeValueSchemaLocation);
+                    writer.WriteAttributeString(XMlAttributeNameVersion, Version);
 
                     _metadata.Write(writer, progress);
                     _graph.Write(writer, progress);

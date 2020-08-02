@@ -9,9 +9,10 @@ namespace gexf4net.test.Utils
 {
     class XmlTestWriter
     {
-        public string ActualOutput { get; private set; }
+        public string ExpectedNormalizedXmlOutput { get; private set; }
+        public string ActualNormalizedXmlOutput { get; private set; }
 
-        public XmlTestWriter(IGexfElement element)
+        public XmlTestWriter(IGexfElement element, string expectedXmlOutput)
         {
             MemoryStream stream = new MemoryStream();
 
@@ -28,7 +29,26 @@ namespace gexf4net.test.Utils
                 element.Write(writer, null);
             }
 
-            ActualOutput = Encoding.UTF8.GetString(stream.ToArray());
+            ActualNormalizedXmlOutput = Encoding.UTF8.GetString(stream.ToArray()).StripByteOrderMark();
+            ExpectedNormalizedXmlOutput = expectedXmlOutput.StripByteOrderMark();
+
+            LogDifferences();
+        }
+
+        private void LogDifferences()
+        {
+            char[] e = ExpectedNormalizedXmlOutput.ToCharArray();
+            char[] a = ActualNormalizedXmlOutput.ToCharArray();
+
+            int l = Math.Min(e.Length, a.Length);
+
+            for (int i = 0; i < l; i++)
+            {
+                if (e[i] != a[i])
+                {
+                    Console.WriteLine("First diff at {0}:  expected={1} actua={2}", i, e[i], a[i]);
+                }
+            }
         }
     }
 }

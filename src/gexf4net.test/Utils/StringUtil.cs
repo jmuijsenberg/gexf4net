@@ -8,25 +8,9 @@ namespace gexf4net.test.Utils
 {
     public static class StringUtils
     {
-        public static string StripBom(this string input)
+        public static string StripByteOrderMark(this string input)
         {
             return input.Trim(new char[] { '\uFEFF' });
-        }
-
-        public static void Compare(string expected, string actual)
-        {
-            char[] e = expected.ToCharArray();
-            char[] a = actual.ToCharArray();
-
-            int l = Math.Min(e.Length, a.Length);
-
-            for (int i = 0; i < l; i++)
-            {
-                if (e[i] != a[i])
-                {
-                    Console.WriteLine("First diff at {0}:  expected={1} actua={2}", i, e[i], a[i]);
-                }
-            }
         }
     }
 }

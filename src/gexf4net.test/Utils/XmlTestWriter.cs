@@ -32,7 +32,10 @@ namespace gexf4net.test.Utils
             ActualNormalizedXmlOutput = Encoding.UTF8.GetString(stream.ToArray()).StripByteOrderMark();
             ExpectedNormalizedXmlOutput = expectedXmlOutput.StripByteOrderMark();
 
-            LogDifferences();
+            if (ActualNormalizedXmlOutput != ExpectedNormalizedXmlOutput)
+            {
+                LogDifferences();
+            }
         }
 
         private void LogDifferences()

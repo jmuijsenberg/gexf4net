@@ -91,7 +91,7 @@ namespace gexf4net
             {
                 writer.WriteAttributeString(XmlAttibuteNameWeight, Weight.ToString());
             }
-            if (Label.Length > 0)
+            if (!string.IsNullOrEmpty(Label))
             {
                 writer.WriteAttributeString(XmlAttibuteNameLabel, Label);
             }

@@ -9,15 +9,8 @@ namespace gexf4net
 {
     // RelaxNG specification
     //
-    // # extension point
-    // edge-content &=
-    //     element color { color-content }?
-    //   & element thickness { thickness-content }?
-    //   & element shape { edge-shape-content }?
-    // 
-    // # new point
-    // edge-shape-content =
-    //     attribute value { edge-shape-type }
+    // size-content =
+    //     attribute value { size-type }
     //   & (
     //       ( attribute start { time-type }?
     //       | attribute startopen { time-type }?)
@@ -27,18 +20,10 @@ namespace gexf4net
     //   )
     //   & element spells { spells-content }?
     // 
-    // # new datatype
-    // thickness-type = [ a:defaultValue = "1.0" ] 
+    // size-type = [ a:defaultValue = "1.0" ] 
     //     xsd:float { minInclusive = "0.0"}
-    // 
-    // # new datatype
-    // edge-shape-type =  [ a:defaultValue = "solid" ] 
-    //     string "solid" |
-    //     string "dotted" |
-    //     string "dashed" |
-    //     string "double"
     //
-    internal class GexfEdgeVisualization : IGexfElement
+    internal class GexfNodeSize : IGexfElement
     {
         public void Write(XmlWriter writer, IProgress<GexfProgress> progress)
         {

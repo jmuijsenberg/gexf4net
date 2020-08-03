@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace gexf4net.test.Nodes
 {
     [TestClass]
-    public class GexfNodeVisualizationTest
+    public class GexfNodeSizeTest
     {
         [TestMethod]
         public void TestMethod1()

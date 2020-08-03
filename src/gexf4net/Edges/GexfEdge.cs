@@ -31,7 +31,12 @@ namespace gexf4net
     // edge-content &=
     //     element attvalues { attvalues-content }?
     // 
-    // # data types
+    // # extension point visualization
+    // edge-content &=
+    //     element color { color-content }?
+    //   & element thickness { thickness-content }?
+    //   & element shape { edge-shape-content }?
+    // 
     // id-type = 
     //     xsd:string | xsd:integer
     // 

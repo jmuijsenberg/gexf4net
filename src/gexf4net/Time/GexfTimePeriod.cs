@@ -9,7 +9,6 @@ namespace gexf4net
 {
     // RelaxNG specification
     //
-    // # new point
     // spell-content = (
     //       ( attribute start { time-type }?
     //       | attribute startopen { time-type }?)

@@ -33,6 +33,13 @@ namespace gexf4net
     //   & element nodes { nodes-content }?
     //   & element edges { edges-content }?
     // 
+    // # extension point visialization
+    // node-content &=
+    //     element color { color-content }?
+    //   & element position { position-content }?
+    //   & element size { size-content }?
+    //   & element shape { node-shape-content }?
+    // 
     // Note: dynamic weight can be obtained by using the reserved title "weight" in attributes
     // 
     internal class GexfNode : IGexfNode , IGexfElement
@@ -51,6 +58,13 @@ namespace gexf4net
         public string Id { get; set; }
         public string Label { get; set; }
         public IList<IGexfNode> Children { get; }
+
+        public IGexfNode AddChildNode(string id, string label)
+        {
+            GexfNode child = new GexfNode() { Id = id, Label = label };
+            _nodes.Add(child);
+            return child;
+        }
 
         public void Write(XmlWriter writer, IProgress<GexfProgress> progress)
         {

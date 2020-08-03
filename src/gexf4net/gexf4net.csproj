@@ -48,9 +48,11 @@
     <Compile Include="Attributes\GexfAttributeValue.cs" />
     <Compile Include="Attributes\GexfAttributeValueList.cs" />
     <Compile Include="Edges\GexfEdge.cs" />
+    <Compile Include="Edges\GexfEdgeColor.cs" />
     <Compile Include="Edges\GexfEdgeList.cs" />
+    <Compile Include="Edges\GexfEdgeShape.cs" />
+    <Compile Include="Edges\GexfEdgeThickness.cs" />
     <Compile Include="Edges\GexfEdgeType.cs" />
-    <Compile Include="Edges\GexfEdgeVisualization.cs" />
     <Compile Include="GexfProgress.cs" />
     <Compile Include="Graph\GexfGraph.cs" />
     <Compile Include="Graph\GexfIdType.cs" />
@@ -64,8 +66,11 @@
     <Compile Include="Nodes\GexfNode.cs" />
     <Compile Include="Attributes\GexfAttribute.cs" />
     <Compile Include="Attributes\GexfAttributeList.cs" />
+    <Compile Include="Nodes\GexfNodeColor.cs" />
     <Compile Include="Nodes\GexfNodeList.cs" />
-    <Compile Include="Nodes\GexfNodeVisualization.cs" />
+    <Compile Include="Nodes\GexfNodePosition.cs" />
+    <Compile Include="Nodes\GexfNodeShape.cs" />
+    <Compile Include="Nodes\GexfNodeSize.cs" />
     <Compile Include="Time\GexfTimePeriodList.cs" />
     <Compile Include="Time\GexfTimeFormat.cs" />
     <Compile Include="Time\GexfTimePeriod.cs" />

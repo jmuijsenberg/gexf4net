@@ -9,22 +9,12 @@ namespace gexf4net
 {
     // RelaxNG specification
     //
-    // # new point
     // attribute-content =
     //     attribute id { id-type }
     //   & attribute title { xsd:string }
     //   & attribute type { attrtype-type }
     //   & element default { text }?
     //   & element options { text }?
-    // 
-    // # extension point
-    // attributes-content &= (
-    //       ( attribute start { time-type }?
-    //       | attribute startopen { time-type }?)
-    //       & 
-    //       ( attribute end { time-type }?
-    //       & attribute endopen { time-type }?)
-    //   )
     //
     internal class GexfAttribute<OwnerType> : IGexfElement
     {

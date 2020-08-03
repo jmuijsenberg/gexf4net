@@ -9,12 +9,10 @@ namespace gexf4net
 {
     // RelaxNG specification
     //
-    // # new point
     // attvalue-content =
     //     attribute for { id-type }
     //   & attribute value { xsd:string }
     // 
-    // # extension point
     // attvalue-content &= (
     //       ( attribute start { time-type }?
     //       | attribute startopen { time-type }?)

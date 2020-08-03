@@ -9,7 +9,6 @@ namespace gexf4net.Attributes
 {
     // RelaxNG specification
     //
-    // # new point
     // attvalues-content =
     //     element attvalue { attvalue-content }*
     //

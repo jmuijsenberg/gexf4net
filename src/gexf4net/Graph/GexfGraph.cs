@@ -36,8 +36,6 @@ namespace gexf4net
     //     string "undirected" | 
     //     string "mutual"
     // 
-    // # data types
-    //
     // id-type = 
     //     xsd:string | xsd:integer
     // 

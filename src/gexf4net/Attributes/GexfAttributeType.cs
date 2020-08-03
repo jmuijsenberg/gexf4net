@@ -8,7 +8,6 @@ namespace gexf4net
 {
     // RelaxNG specification
     //
-    // # new datatype
     // attrtype-type =
     //     string "integer" | 
     //     string "long" | 

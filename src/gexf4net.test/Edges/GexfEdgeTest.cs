@@ -7,7 +7,7 @@ namespace gexf4net.test.Edges
     [TestClass]
     public class GexfEdgeTest
     {
-        private const string XmlOutput = "<edge id=\"1\" source=\"2\" target=\"3\" />";
+        private const string XmlOutput = "<edge id=\"1\" source=\"2\" target=\"3\" type=\"directed\" label=\"edgelabel\" weight=\"3.167\" />";
 
         [TestMethod]
         public void GivenNodeWhenWritingXmlThenIdAndLabelAreWritten()

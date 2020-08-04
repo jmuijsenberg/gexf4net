@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
 
-namespace gexf4net
+namespace gexf4net.Time
 {
     // RelaxNG specification
     //
@@ -15,12 +12,7 @@ namespace gexf4net
     //
     internal class GexfTimePeriodList : IGexfElement
     {
-        private List<GexfTimePeriod> _spells = new List<GexfTimePeriod>();
-
-        public GexfTimePeriodList()
-        {
-            _spells = new List<GexfTimePeriod>();
-        }
+        private readonly List<GexfTimePeriod> _spells = new List<GexfTimePeriod>();
 
         public IEnumerable<GexfTimePeriod> Spells => _spells;
 

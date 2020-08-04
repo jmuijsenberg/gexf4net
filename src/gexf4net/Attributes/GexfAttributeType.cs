@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace gexf4net
+﻿namespace gexf4net.Attributes
 {
     // RelaxNG specification
     //
@@ -27,6 +21,6 @@ namespace gexf4net
         Boolean,
         ListString,
         Strig,
-        AnyURI
+        AnyUri
     }
 }

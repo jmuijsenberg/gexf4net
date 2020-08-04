@@ -1,16 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
 
-namespace gexf4net
+namespace gexf4net.Visualization
 {
     // RelaxNG specification
     //
-    // edge-shape-content =
-    //     attribute value { edge-shape-type }
+    // position-content =
+    //     attribute x { space-point }
+    //   & attribute y { space-point }
+    //   & attribute z { space-point }
     //   & (
     //       ( attribute start { time-type }?
     //       | attribute startopen { time-type }?)
@@ -20,13 +18,10 @@ namespace gexf4net
     //   )
     //   & element spells { spells-content }?
     // 
-    // edge-shape-type =  [ a:defaultValue = "solid" ] 
-    //     string "solid" |
-    //     string "dotted" |
-    //     string "dashed" |
-    //     string "double"
+    // space-point = 
+    //     xsd:float
     //
-    internal class GexfEdgeShape : IGexfElement
+    internal class GexfNodePosition : IGexfElement
     {
         public void Write(XmlWriter writer, IProgress<GexfProgress> progress)
         {

@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
 
-namespace gexf4net
+namespace gexf4net.Attributes
 {
     // RelaxNG specification
     //
@@ -16,7 +13,7 @@ namespace gexf4net
     //   & element default { text }?
     //   & element options { text }?
     //
-    internal class GexfAttribute<OwnerType> : IGexfElement
+    internal class GexfAttribute : IGexfElement
     {
         public string Id { get; set; }
         public string Title { get; set; }

@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
 
-namespace gexf4net
+namespace gexf4net.Edges
 {
     // RelaxNG specification
     // 
@@ -18,12 +15,7 @@ namespace gexf4net
         private const string XmlElementName = "edges";
         private const string XmlAttibuteNameCount = "count";
 
-        private List<GexfEdge> _edges = new List<GexfEdge>();
-
-        public GexfEdgeList()
-        {
-
-        }
+        private readonly List<GexfEdge> _edges = new List<GexfEdge>();
 
         public IEnumerable<IGexfEdge> Edges=> _edges;
 

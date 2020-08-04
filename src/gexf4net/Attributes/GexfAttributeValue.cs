@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
 
-namespace gexf4net
+namespace gexf4net.Attributes
 {
     // RelaxNG specification
     //
@@ -21,29 +17,29 @@ namespace gexf4net
     //       & attribute endopen { time-type }?)
     //   )
     //
-    internal class GexfAttributeValue<OwnerType> : IGexfElement
+    internal class GexfAttributeValue : IGexfElement
     {
-        private GexfAttribute<OwnerType> _attribute;
-        private GexfTimePeriodList _spells;
+        private GexfAttribute _attribute;
+        //private GexfTimePeriodList _spells;
 
-        public GexfAttributeValue(GexfAttribute<OwnerType> attribute)
+        public GexfAttributeValue(GexfAttribute attribute)
         {
             _attribute = attribute;
         }
 
         public string Value { get; set; }
 
-        public bool IsValid(DateTime? dateTime)
-        {
-            if ((_spells != null) && dateTime.HasValue)
-            {
-                return _spells.InRange(dateTime.Value);
-            }
-            else
-            {
-                return true;
-            }
-        }
+        //public bool IsValid(DateTime? dateTime)
+        //{
+        //    if ((_spells != null) && dateTime.HasValue)
+        //    {
+        //        return _spells.InRange(dateTime.Value);
+        //    }
+        //    else
+        //    {
+        //        return true;
+        //    }
+        //}
 
         public void Write(XmlWriter writer, IProgress<GexfProgress> progress)
         {

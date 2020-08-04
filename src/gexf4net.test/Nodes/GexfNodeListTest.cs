@@ -1,4 +1,4 @@
-﻿using System;
+﻿using gexf4net.Nodes;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using gexf4net.test.Utils;
 

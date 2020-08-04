@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
+using gexf4net.Edges;
+using gexf4net.Nodes;
+using gexf4net.Time;
 
-namespace gexf4net
+namespace gexf4net.Graph
 {
     // RelaxNG specification
     //
@@ -54,8 +54,8 @@ namespace gexf4net
         private const string XmlAttibuteNameIdType = "idtype";
         private const string XmlAttibuteNameMode = "mode";
 
-        private GexfNodeList _nodeList = new GexfNodeList();
-        private GexfEdgeList _edgeList = new GexfEdgeList();
+        private readonly GexfNodeList _nodeList = new GexfNodeList();
+        private readonly GexfEdgeList _edgeList = new GexfEdgeList();
 
         public GexfGraph()
         {
@@ -67,29 +67,33 @@ namespace gexf4net
         public GexfEdgeType DefaultEdgeType { get; set; }
         public GexfIdType IdType { get; set; }
         public GexfMode Mode { get; set; }
-        public IList<IGexfNode> Nodes { get; }
-        public IList<IGexfEdge> Edges { get; }
+        public IEnumerable<IGexfNode> Nodes => _nodeList.Nodes;
+        public IEnumerable<IGexfEdge> Edges => _edgeList.Edges;
         public GexfTimeFormat TimeFormat { get; set; }
         public GexfTimePeriod Lifetime { get; set; }
 
         public IGexfNode AddNode(string id, string label)
         {
-            GexfNode node = new GexfNode();
-            node.Id = id;
-            node.Label = label;
+            GexfNode node = new GexfNode
+            {
+                Id = id,
+                Label = label
+            };
             _nodeList.Add(node);
             return node;
         }
 
         public IGexfEdge AddEdge(string id, IGexfNode source, IGexfNode target, GexfEdgeType edgeType, double weight, string label)
         {
-            GexfEdge edge = new GexfEdge(DefaultEdgeType);
-            edge.Id = id;
-            edge.Source = source.Id;
-            edge.Target = target.Id;
-            edge.Weight = weight;
-            edge.EdgeType = edgeType;
-            edge.Label = label;
+            GexfEdge edge = new GexfEdge(DefaultEdgeType)
+            {
+                Id = id,
+                Source = source.Id,
+                Target = target.Id,
+                Weight = weight,
+                EdgeType = edgeType,
+                Label = label
+            };
             _edgeList.Add(edge);
             return edge;
         }

@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
 
-namespace gexf4net
+namespace gexf4net.Metadata
 {
     // RelaxNG specification
     //
@@ -17,10 +12,6 @@ namespace gexf4net
         private const string XmlElementName = "creator";
 
         public string Creator { get; set; }
-
-        public GexfCreatorMetadata()
-        {
-        }
 
         public void Write(XmlWriter writer, IProgress<GexfProgress> progress)
         {

@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
 
-namespace gexf4net
+namespace gexf4net.Visualization
 {
     // RelaxNG specification
     //
@@ -29,7 +25,7 @@ namespace gexf4net
     // alpha-channel = [ a:defaultValue = "1.0" ] 
     //     xsd:float { minInclusive = "0.0" maxInclusive = "1.0" }
     // 
-    internal class GexfEdgeColor : IGexfElement
+    internal class GexfNodeColor : IGexfElement
     {
         public void Write(XmlWriter writer, IProgress<GexfProgress> progress)
         {

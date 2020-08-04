@@ -1,7 +1,6 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace gexf4net.test.Edges
+namespace gexf4net.test.Visualization
 {
     [TestClass]
     public class GexfEdgeShapeTest

@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Globalization;
 using System.Xml;
 
-namespace gexf4net
+namespace gexf4net.Edges
 {
     // RelaxNG specification
     //
@@ -61,7 +58,7 @@ namespace gexf4net
         private const string XmlAttibuteNameTarget = "target";
         private const string XmlAttibuteNameWeight = "weight";
         private const string XmlAttibuteNameEdgeType = "edgetype";
-        private GexfEdgeType _defaultEdgeType;
+        private readonly GexfEdgeType _defaultEdgeType;
 
         //private GexfSpellList _spells;
 
@@ -89,7 +86,7 @@ namespace gexf4net
             writer.WriteAttributeString(XmlAttibuteNameTarget, Target);
             if (Weight != 1.0)
             {
-                writer.WriteAttributeString(XmlAttibuteNameWeight, Weight.ToString());
+                writer.WriteAttributeString(XmlAttibuteNameWeight, Weight.ToString(CultureInfo.InvariantCulture));
             }
             if (!string.IsNullOrEmpty(Label))
             {

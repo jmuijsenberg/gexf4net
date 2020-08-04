@@ -1,18 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
 
-namespace gexf4net
+namespace gexf4net.Visualization
 {
     // RelaxNG specification
     //
-    // position-content =
-    //     attribute x { space-point }
-    //   & attribute y { space-point }
-    //   & attribute z { space-point }
+    // thickness-content =
+    //     attribute value { thickness-type }
     //   & (
     //       ( attribute start { time-type }?
     //       | attribute startopen { time-type }?)
@@ -22,10 +16,10 @@ namespace gexf4net
     //   )
     //   & element spells { spells-content }?
     // 
-    // space-point = 
-    //     xsd:float
-    //
-    internal class GexfNodePosition : IGexfElement
+    // thickness-type = [ a:defaultValue = "1.0" ] 
+    //     xsd:float { minInclusive = "0.0"}
+    // 
+    internal class GexfEdgeThickness : IGexfElement
     {
         public void Write(XmlWriter writer, IProgress<GexfProgress> progress)
         {

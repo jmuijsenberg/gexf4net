@@ -1,6 +1,4 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using gexf4net;
 using System.IO;
 using System.Xml;
 using System.Text;
@@ -9,8 +7,8 @@ namespace gexf4net.test.Utils
 {
     class XmlTestWriter
     {
-        public string ExpectedNormalizedXmlOutput { get; private set; }
-        public string ActualNormalizedXmlOutput { get; private set; }
+        public string ExpectedNormalizedXmlOutput { get; }
+        public string ActualNormalizedXmlOutput { get; }
 
         public XmlTestWriter(IGexfElement element, string expectedXmlOutput)
         {

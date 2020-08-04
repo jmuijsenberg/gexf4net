@@ -1,4 +1,5 @@
 ﻿using System;
+using gexf4net.Metadata;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using gexf4net.test.Utils;
 
@@ -22,11 +23,13 @@ namespace gexf4net.test.Metadata
         [TestMethod]
         public void GivenMetadataIsNotEmptyWhenWritingXmlThenMetadataIsWritten()
         {
-            GexfMetadata metadata = new GexfMetadata();
-            metadata.Creator = "Gephi.org";
-            metadata.Description = "A hello world! file";
-            metadata.Keywords = "Keyword Metadata";
-            metadata.LastModifiedDate = new DateTime(2009,3, 20);
+            GexfMetadata metadata = new GexfMetadata
+            {
+                Creator = "Gephi.org",
+                Description = "A hello world! file",
+                Keywords = "Keyword Metadata",
+                LastModifiedDate = new DateTime(2009, 3, 20)
+            };
             XmlTestWriter writer = new XmlTestWriter(metadata, XmlOutput);
             Assert.AreEqual(writer.ExpectedNormalizedXmlOutput, writer.ActualNormalizedXmlOutput);
         }

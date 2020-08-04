@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
 
-namespace gexf4net
+namespace gexf4net.Nodes
 {
     // RelaxNG specification
     //
@@ -18,12 +15,7 @@ namespace gexf4net
         private const string XmlElementName = "nodes";
         private const string XmlAttibuteNameCount = "count";
 
-        private List<GexfNode> _nodes = new List<GexfNode>();
-
-        public GexfNodeList()
-        {
-
-        }
+        private readonly List<GexfNode> _nodes = new List<GexfNode>();
 
         public IEnumerable<IGexfNode> Nodes => _nodes;
 

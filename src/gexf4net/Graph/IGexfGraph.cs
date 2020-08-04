@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using gexf4net.Edges;
+using gexf4net.Nodes;
 
-namespace gexf4net
+namespace gexf4net.Graph
 {
     public interface IGexfGraph
     {

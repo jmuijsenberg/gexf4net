@@ -1,6 +1,5 @@
-﻿using System;
+﻿using gexf4net.Metadata;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using gexf4net;
 using gexf4net.test.Utils;
 
 namespace gexf4net.test.Metadata
@@ -14,8 +13,7 @@ namespace gexf4net.test.Metadata
         public void GivenCreatorIsNotEmptyWhenWritingXmlThenCreatorIsWritten()
         {
 
-            GexfKeywordsMetadata metadata = new GexfKeywordsMetadata();
-            metadata.Keywords = "Keyword Metadata";
+            GexfKeywordsMetadata metadata = new GexfKeywordsMetadata {Keywords = "Keyword Metadata"};
             XmlTestWriter writer = new XmlTestWriter(metadata, XmlOutput);
             Assert.AreEqual(writer.ExpectedNormalizedXmlOutput, writer.ActualNormalizedXmlOutput);
         }

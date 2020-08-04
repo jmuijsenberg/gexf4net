@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
 
-namespace gexf4net
+namespace gexf4net.Attributes
 {
     // RelaxNG specification
     //
@@ -18,16 +15,16 @@ namespace gexf4net
     //     string "node" | 
     //     string "edge" 
     //
-    internal class GexfAttributeList<OwnerType> : IGexfElement
+    internal class GexfAttributeList : IGexfElement
     {
-        private List<GexfAttribute<OwnerType>> _attributes = new List<GexfAttribute<OwnerType>>();
-
-        public GexfAttributeList()
-        {
-        }
+        private List<GexfAttribute> _attributes = new List<GexfAttribute>();
 
         public void Write(XmlWriter writer, IProgress<GexfProgress> progress)
         {
+            foreach (GexfAttribute attribute in _attributes)
+            {
+                attribute.Write(writer, progress);
+            }
         }
     }
 }

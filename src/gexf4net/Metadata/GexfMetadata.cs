@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
 
-namespace gexf4net
+namespace gexf4net.Metadata
 {
     // RelaxNG specification
     //
@@ -21,13 +16,9 @@ namespace gexf4net
         private const string XmlElementName = "meta";
         private const string XmlAttibuteNameLastModifiedDate = "lastmodifieddate";
 
-        private GexfCreatorMetadata _creatorMetadata = new GexfCreatorMetadata();
-        private GexfDescriptionMetadata _descriptionMetadata = new GexfDescriptionMetadata();
-        private GexfKeywordsMetadata _keywordsMetadata = new GexfKeywordsMetadata();
-
-        public GexfMetadata()
-        {
-        }
+        private readonly GexfCreatorMetadata _creatorMetadata = new GexfCreatorMetadata();
+        private readonly GexfDescriptionMetadata _descriptionMetadata = new GexfDescriptionMetadata();
+        private readonly GexfKeywordsMetadata _keywordsMetadata = new GexfKeywordsMetadata();
 
         public DateTime? LastModifiedDate { get; set; }
 

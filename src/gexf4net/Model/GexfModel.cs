@@ -1,12 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
+using gexf4net.Edges;
+using gexf4net.Graph;
+using gexf4net.Metadata;
+using gexf4net.Nodes;
 
-namespace gexf4net
+namespace gexf4net.Model
 {
 	// RelaxNG specification
 	//
@@ -31,26 +31,21 @@ namespace gexf4net
 
         private const string XMlAttributeNameVersion = "version";
 
-        private GexfMode _mode;
-        private GexfMetadata _metadata = new GexfMetadata();
-        private GexfGraph _graph = new GexfGraph();
+        private readonly GexfMetadata _metadata = new GexfMetadata();
+        private readonly GexfGraph _graph = new GexfGraph();
 
-        FileInfo _modelFile;
+        readonly FileInfo _modelFile;
 
         public GexfModel(FileInfo modelFile, GexfMode mode, DateTime lastModifiedDate)
         {
             _modelFile = modelFile;
-            _mode = mode;
+            Mode = mode;
             _metadata.LastModifiedDate = lastModifiedDate;
         }
 
-        public string Version
-        {
-            get
-            {
-                return "1.2";
-            }
-        }
+        public string Version => "1.2";
+
+        public GexfMode Mode { get; }
 
         public string Creator
         {

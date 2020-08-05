@@ -22,10 +22,24 @@ namespace gexf4net.Visualization
     //     string "dashed" |
     //     string "double"
     //
-    internal class GexfEdgeShape : IGexfElement
+    internal class GexfShape : IGexfElement
     {
+        private const string XmlElementPrefix = "viz";
+        private const string XmlElementName = "shape";
+        private const string XmlElementNamespace = "http://www.gexf.net/1.2draft/viz";
+
+        private const string XmlAttibuteNameValue = "value";
+
+        public string Shape { get; set; }
+
         public void Write(XmlWriter writer, IProgress<GexfProgress> progress)
         {
+            if (!string.IsNullOrEmpty(Shape))
+            {
+                writer.WriteStartElement(XmlElementPrefix, XmlElementName, XmlElementNamespace);
+                writer.WriteAttributeString(XmlAttibuteNameValue, Shape);
+                writer.WriteEndElement();
+            }
         }
     }
 }

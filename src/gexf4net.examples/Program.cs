@@ -3,6 +3,7 @@ using System.IO;
 using gexf4net.Edges;
 using gexf4net.Model;
 using gexf4net.Nodes;
+using System.Drawing;
 
 namespace gexf4net.examples
 {
@@ -20,6 +21,7 @@ namespace gexf4net.examples
             IGexfNode nodeA = model.AddNode("1", "a");
             IGexfNode nodeB = model.AddNode("2", "b");
             IGexfNode nodeC = model.AddNode("3", "c");
+            nodeC.Color = Color.Red;
             model.AddEdge("1", nodeA, nodeB, GexfEdgeType.Directed, 2.0);
             model.AddEdge("2", nodeB, nodeC, GexfEdgeType.Mutual);
             model.AddEdge("3", nodeA, nodeC, GexfEdgeType.Undirected);

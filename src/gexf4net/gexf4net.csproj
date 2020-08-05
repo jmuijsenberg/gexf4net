@@ -36,6 +36,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,8 +50,8 @@
     <Compile Include="Attributes\GexfAttributeValueList.cs" />
     <Compile Include="Edges\GexfEdge.cs" />
     <Compile Include="Edges\GexfEdgeList.cs" />
-    <Compile Include="Visualization\GexfEdgeShape.cs" />
-    <Compile Include="Visualization\GexfEdgeThickness.cs" />
+    <Compile Include="Visualization\GexfShape.cs" />
+    <Compile Include="Visualization\GexfThickness.cs" />
     <Compile Include="Edges\GexfEdgeType.cs" />
     <Compile Include="GexfProgress.cs" />
     <Compile Include="Graph\GexfGraph.cs" />
@@ -67,9 +68,8 @@
     <Compile Include="Attributes\GexfAttributeList.cs" />
     <Compile Include="Visualization\GexfColor.cs" />
     <Compile Include="Nodes\GexfNodeList.cs" />
-    <Compile Include="Visualization\GexfNodePosition.cs" />
-    <Compile Include="Visualization\GexfNodeShape.cs" />
-    <Compile Include="Visualization\GexfNodeSize.cs" />
+    <Compile Include="Visualization\GexfPosition.cs" />
+    <Compile Include="Visualization\GexfSize.cs" />
     <Compile Include="Time\GexfTimePeriodList.cs" />
     <Compile Include="Time\GexfTimeFormat.cs" />
     <Compile Include="Time\GexfTimePeriod.cs" />

@@ -1,5 +1,7 @@
-﻿using System;
+﻿using gexf4net.Visualization;
+using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Xml;
 
 namespace gexf4net.Nodes
@@ -46,15 +48,23 @@ namespace gexf4net.Nodes
         private const string XmlAttibuteNameLabel = "label";
 
         private readonly GexfNodeList _nodes = new GexfNodeList();
+        private readonly GexfColor _color = new GexfColor();
 
         public GexfNode()
         {
             Children = new List<IGexfNode>();
         }
 
+
         public string Id { get; set; }
         public string Label { get; set; }
         public IList<IGexfNode> Children { get; }
+
+        public Color? Color
+        {
+            get { return _color.Color; }
+            set { _color.Color = value; }
+        }
 
         public IGexfNode AddChildNode(string id, string label)
         {
@@ -73,6 +83,8 @@ namespace gexf4net.Nodes
             {
                 _nodes.Write(writer, progress);
             }
+
+            _color.Write(writer, progress);
 
             writer.WriteEndElement();
         }

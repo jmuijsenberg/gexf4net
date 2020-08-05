@@ -57,7 +57,7 @@ namespace gexf4net.Edges
         private const string XmlAttibuteNameSource = "source";
         private const string XmlAttibuteNameTarget = "target";
         private const string XmlAttibuteNameWeight = "weight";
-        private const string XmlAttibuteNameEdgeType = "edgetype";
+        private const string XmlAttibuteNameEdgeType = "type";
         private readonly GexfEdgeType _defaultEdgeType;
 
         //private GexfSpellList _spells;
@@ -94,7 +94,7 @@ namespace gexf4net.Edges
             }
             if (EdgeType != _defaultEdgeType)
             {
-                writer.WriteAttributeString(XmlAttibuteNameEdgeType, EdgeType.ToString());
+                writer.WriteAttributeString(XmlAttibuteNameEdgeType, EdgeType.ToString().ToLower());
             }
             writer.WriteEndElement();
         }

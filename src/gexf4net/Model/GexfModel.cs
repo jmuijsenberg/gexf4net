@@ -22,11 +22,8 @@ namespace gexf4net.Model
     {
         private const string XmlElementNameRoot = "gexf";
         private const string XmlNamespace = "http://www.gexf.net/1.2draft";
-
-        private const string XMlAttributeNameXsi = "xmlns:xsi";
+        private const string XMlAttributeValueXmlnsViz = "http://www.gexf.net/1.2draft/viz";
         private const string XMlAttributeValueXsi = "http://www.w3.org/2001/XMLSchema􀀀instance";
-
-        private const string XMlAttributeNameSchemaLocation = "xsi:schemaLocationn";
         private const string XMlAttributeValueSchemaLocation = "http://www.gexf.net/1.2draft http://www.gexf.net/1.2draft/gexf.xsd";
 
         private const string XMlAttributeNameVersion = "version";
@@ -91,8 +88,9 @@ namespace gexf4net.Model
                     writer.WriteStartDocument();
 
                     writer.WriteStartElement(XmlElementNameRoot, XmlNamespace);
-                    writer.WriteAttributeString(XMlAttributeNameXsi, XMlAttributeValueXsi);
-                    writer.WriteAttributeString(XMlAttributeNameSchemaLocation, XMlAttributeValueSchemaLocation);
+                    writer.WriteAttributeString("xmlns", "viz", null, XMlAttributeValueXmlnsViz);
+                    writer.WriteAttributeString("xmlns", "xsi", null, XMlAttributeValueXsi);
+                    writer.WriteAttributeString("xsi", "schemaLocationn", null, XMlAttributeValueSchemaLocation);
                     writer.WriteAttributeString(XMlAttributeNameVersion, Version);
 
                     _metadata.Write(writer, progress);

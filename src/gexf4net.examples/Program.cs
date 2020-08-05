@@ -21,6 +21,12 @@ namespace gexf4net.examples
             IGexfNode nodeA = model.AddNode("1", "a");
             IGexfNode nodeB = model.AddNode("2", "b");
             IGexfNode nodeC = model.AddNode("3", "c");
+
+            nodeA.X = 1.0f;
+            nodeA.Y = 2.0f;
+            nodeA.Z = 3.0f;
+            nodeB.Shape = "disc";
+            nodeB.Size = 1.0f;
             nodeC.Color = Color.Red;
             model.AddEdge("1", nodeA, nodeB, GexfEdgeType.Directed, 2.0);
             model.AddEdge("2", nodeB, nodeC, GexfEdgeType.Mutual);

@@ -49,6 +49,9 @@ namespace gexf4net.Nodes
 
         private readonly GexfNodeList _nodes = new GexfNodeList();
         private readonly GexfColor _color = new GexfColor();
+        private readonly GexfPosition _position = new GexfPosition();
+        private readonly GexfSize _size = new GexfSize();
+        private readonly GexfShape _shape = new GexfShape();
 
         public GexfNode()
         {
@@ -64,6 +67,36 @@ namespace gexf4net.Nodes
         {
             get { return _color.Color; }
             set { _color.Color = value; }
+        }
+
+        public float? X
+        {
+            get { return _position.X; }
+            set { _position.X = value; }
+        }
+
+        public float? Y
+        {
+            get { return _position.Y; }
+            set { _position.Y = value; }
+        }
+
+        public float? Z
+        {
+            get { return _position.X; }
+            set { _position.Z = value; }
+        }
+
+        public float? Size
+        {
+            get { return _size.Size; }
+            set { _size.Size = value; }
+        }
+
+        public string Shape
+        {
+            get { return _shape.Shape; }
+            set { _shape.Shape = value; }
         }
 
         public IGexfNode AddChildNode(string id, string label)
@@ -85,6 +118,9 @@ namespace gexf4net.Nodes
             }
 
             _color.Write(writer, progress);
+            _position.Write(writer, progress);
+            _size.Write(writer, progress);
+            _shape.Write(writer, progress);
 
             writer.WriteEndElement();
         }

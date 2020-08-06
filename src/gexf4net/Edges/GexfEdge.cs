@@ -1,4 +1,6 @@
-﻿using System;
+﻿using gexf4net.Visualization;
+using System;
+using System.Drawing;
 using System.Globalization;
 using System.Xml;
 
@@ -60,6 +62,10 @@ namespace gexf4net.Edges
         private const string XmlAttibuteNameEdgeType = "type";
         private readonly GexfEdgeType _defaultEdgeType;
 
+        private readonly GexfColor _color = new GexfColor();
+        private readonly GexfThickness _thickness = new GexfThickness();
+        private readonly GexfShape _shape = new GexfShape();
+
         //private GexfSpellList _spells;
 
         public GexfEdge(GexfEdgeType defaultEdgeType)
@@ -75,6 +81,24 @@ namespace gexf4net.Edges
         public double Weight { get; set; }
         public string Label { get; set; }
         public GexfEdgeType EdgeType { get; set; }
+
+        public Color? Color
+        {
+            get { return _color.Color; }
+            set { _color.Color = value; }
+        }
+
+        public float? Thickness
+        {
+            get { return _thickness.Thickness; }
+            set { _thickness.Thickness = value; }
+        }
+
+        public string Shape
+        {
+            get { return _shape.Shape; }
+            set { _shape.Shape = value; }
+        }
 
         //public IDictionary<string, string> AttributeValues { get; }
 
@@ -96,6 +120,11 @@ namespace gexf4net.Edges
             {
                 writer.WriteAttributeString(XmlAttibuteNameEdgeType, EdgeType.ToString().ToLower());
             }
+
+            _color.Write(writer, progress);
+            _thickness.Write(writer, progress);
+            _shape.Write(writer, progress);
+
             writer.WriteEndElement();
         }
 

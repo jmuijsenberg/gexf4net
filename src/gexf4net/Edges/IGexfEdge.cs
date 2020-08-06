@@ -1,4 +1,6 @@
-﻿namespace gexf4net.Edges
+﻿using System.Drawing;
+
+namespace gexf4net.Edges
 {
     public interface IGexfEdge
     {
@@ -8,5 +10,9 @@
         string Source { get; set; }
         string Target { get; set; }
         double Weight { get; set; }
+
+        Color? Color { get; set; }
+        float? Thickness { get; set; }
+        string Shape { get; set; }
     }
 }

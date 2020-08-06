@@ -1,5 +1,7 @@
-﻿using gexf4net.Visualization;
+﻿using gexf4net.Attributes;
+using gexf4net.Visualization;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Globalization;
 using System.Xml;
@@ -72,7 +74,7 @@ namespace gexf4net.Edges
         {
             EdgeType = _defaultEdgeType = defaultEdgeType;
             Weight = 1.0;
-            //AttributeValues = new Dictionary<string, string>();
+            AttributeValues = new List<IGexfEdgeAttributeValue>();
         }
 
         public string Id { get; set; }
@@ -100,7 +102,7 @@ namespace gexf4net.Edges
             set { _shape.Shape = value; }
         }
 
-        //public IDictionary<string, string> AttributeValues { get; }
+        public IEnumerable<IGexfEdgeAttributeValue> AttributeValues { get; }
 
         public void Write(XmlWriter writer, IProgress<GexfProgress> progress)
         {

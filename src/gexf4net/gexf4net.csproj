@@ -48,6 +48,10 @@
     <Compile Include="Attributes\GexfAttributeType.cs" />
     <Compile Include="Attributes\GexfAttributeValue.cs" />
     <Compile Include="Attributes\GexfAttributeValueList.cs" />
+    <Compile Include="Attributes\IGexfEdgeAttribute.cs" />
+    <Compile Include="Attributes\IGexfEdgeAttributeValue.cs" />
+    <Compile Include="Attributes\IGexfNodeAttribute.cs" />
+    <Compile Include="Attributes\IGexfNodeAttributeValue.cs" />
     <Compile Include="Edges\GexfEdge.cs" />
     <Compile Include="Edges\GexfEdgeList.cs" />
     <Compile Include="Visualization\GexfShape.cs" />

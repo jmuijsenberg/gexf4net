@@ -1,4 +1,5 @@
-﻿using gexf4net.Visualization;
+﻿using gexf4net.Attributes;
+using gexf4net.Visualization;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -56,6 +57,7 @@ namespace gexf4net.Nodes
         public GexfNode()
         {
             Children = new List<IGexfNode>();
+            AttributeValues = new List<IGexfNodeAttributeValue>();
         }
 
 
@@ -98,6 +100,8 @@ namespace gexf4net.Nodes
             get { return _shape.Shape; }
             set { _shape.Shape = value; }
         }
+
+        public IEnumerable<IGexfNodeAttributeValue> AttributeValues { get; }
 
         public IGexfNode AddChildNode(string id, string label)
         {

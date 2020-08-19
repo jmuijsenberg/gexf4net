@@ -1,4 +1,6 @@
-﻿using System.Drawing;
+﻿using gexf4net.Attributes;
+using System.Collections.Generic;
+using System.Drawing;
 
 namespace gexf4net.Edges
 {
@@ -14,5 +16,7 @@ namespace gexf4net.Edges
         Color? Color { get; set; }
         float? Thickness { get; set; }
         string Shape { get; set; }
+
+        IEnumerable<IGexfEdgeAttributeValue> AttributeValues { get; }
     }
 }

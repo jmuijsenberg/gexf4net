@@ -5,7 +5,7 @@ namespace gexf4net.Attributes
     interface IGexfNodeAttribute
     {
         string Id { get; }
-        string Name { get; }
+        string Title { get; }
         string DefaultValue { get; }
         bool HasDefault { get; set; }
         IEnumerable<string> Options { get; }

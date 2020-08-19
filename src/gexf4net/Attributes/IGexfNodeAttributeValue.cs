@@ -2,13 +2,11 @@
 
 namespace gexf4net.Attributes
 {
-    interface IGexfNodeAttributeValue
+    public interface IGexfNodeAttributeValue
     {
-        string Id { get; }
-        string Name { get; }
+        string Title { get; }
         string Value { get; set; }
-        string DefaultValue { get; }
-        bool HasDefault { get; }
         IEnumerable<string> Options { get; }
+        GexfAttributeType Type { get; }
     }
 }

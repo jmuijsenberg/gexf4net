@@ -20,7 +20,7 @@
         Float,
         Boolean,
         ListString,
-        Strig,
+        String,
         AnyUri
     }
 }

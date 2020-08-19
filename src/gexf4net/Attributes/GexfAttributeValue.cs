@@ -19,8 +19,11 @@ namespace gexf4net.Attributes
     //
     internal class GexfAttributeValue : IGexfElement
     {
+        private const string XmlElementName = "attvalue";
+        private const string XmlAttibuteNameFor = "for";
+        private const string XmlAttibuteNameValue = "value";
+
         private GexfAttribute _attribute;
-        //private GexfTimePeriodList _spells;
 
         public GexfAttributeValue(GexfAttribute attribute)
         {
@@ -43,6 +46,10 @@ namespace gexf4net.Attributes
 
         public void Write(XmlWriter writer, IProgress<GexfProgress> progress)
         {
+            writer.WriteStartElement(XmlElementName);
+            writer.WriteAttributeString(XmlAttibuteNameFor, _attribute.Id);
+            writer.WriteAttributeString(XmlAttibuteNameValue, Value);
+            writer.WriteEndElement();
         }
     }
 }

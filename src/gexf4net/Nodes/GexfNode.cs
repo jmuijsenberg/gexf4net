@@ -103,6 +103,11 @@ namespace gexf4net.Nodes
 
         public IEnumerable<IGexfNodeAttributeValue> AttributeValues { get; }
 
+        public IGexfNodeAttributeValue GetAttribute(string title)
+        {
+            return null;
+        }
+
         public IGexfNode AddChildNode(string id, string label)
         {
             GexfNode child = new GexfNode() { Id = id, Label = label };

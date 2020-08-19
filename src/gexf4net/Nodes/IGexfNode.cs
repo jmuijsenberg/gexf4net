@@ -1,4 +1,6 @@
-﻿using System.Drawing;
+﻿using gexf4net.Attributes;
+using System.Collections.Generic;
+using System.Drawing;
 
 namespace gexf4net.Nodes
 {
@@ -13,5 +15,7 @@ namespace gexf4net.Nodes
         float? Z { get; set; }
         float? Size { get; set; }
         string Shape { get; set; }
+
+        IEnumerable<IGexfNodeAttributeValue> AttributeValues { get; }
     }
 }
